@@ -1,101 +1,122 @@
-import Image from "next/image";
+'use client';
+
+import { useEffect } from 'react';
+import { Answer } from '@/components/Answer';
+import { useQuizStore } from '@/store/quizStore';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const {
+    questions,
+    currentQuestionIndex,
+    userAnswers,
+    score,
+    setQuestions,
+    submitAnswer,
+    nextQuestion,
+    resetQuiz,
+    isAnswerCorrect,
+    clearAnswers
+  } = useQuizStore();
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    fetch('/api/questions')
+      .then(res => res.json())
+      .then(questions => setQuestions(questions));
+  }, [setQuestions]);
+
+  const currentQuestion = questions[currentQuestionIndex];
+  if (!currentQuestion) return null;
+
+  const isLastQuestion = currentQuestionIndex === questions.length - 1;
+  const hasAnswered = userAnswers[currentQuestion.id];
+  const isCorrectAnswer = hasAnswered ? 
+    isAnswerCorrect(currentQuestion.id, userAnswers[currentQuestion.id]) : 
+    null;
+
+  return (
+    <>
+      <div className="fixed top-4 right-4">
+        <button
+          onClick={clearAnswers}
+          className="text-xs text-gray-500 hover:text-red-500 transition-colors"
+        >
+          Clear answers
+        </button>
+      </div>
+
+      <div className="min-h-screen bg-gray-50 py-8">
+        <div className="max-w-2xl mx-auto px-4">
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <div className="flex justify-between items-center mb-6">
+              <h1 className="text-xl font-bold">Quiz App</h1>
+              <div className="text-sm">
+                Question {currentQuestionIndex + 1} of {questions.length}
+              </div>
+            </div>
+
+            <div className="mb-8">
+              <div className="prose dark:prose-invert max-w-none mb-4">
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                  {currentQuestion.title}
+                </ReactMarkdown>
+              </div>
+              <div className="space-y-3">
+                {currentQuestion.answers.map((answer) => (
+                  <Answer
+                    key={answer.id}
+                    answer={answer}
+                    isSelected={userAnswers[currentQuestion.id] === answer.id}
+                    isCorrect={
+                      userAnswers[currentQuestion.id] === answer.id ?
+                      isAnswerCorrect(currentQuestion.id, answer.id) :
+                      null
+                    }
+                    onClick={() => submitAnswer(currentQuestion.id, answer.id)}
+                    disabled={hasAnswered}
+                  />
+                ))}
+              </div>
+              
+              {hasAnswered && (
+                <div className={`mt-4 p-4 rounded-lg ${
+                  isCorrectAnswer ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'
+                }`}>
+                  <p className="font-medium mb-2">
+                    {isCorrectAnswer ? '✓ Correct!' : '✗ Incorrect'}
+                  </p>
+                  <div className="prose prose-sm dark:prose-invert max-w-none">
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                      {currentQuestion.content}
+                    </ReactMarkdown>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div className="flex justify-between items-center">
+              <div className="text-sm">
+                Score: {score} / {questions.length}
+              </div>
+              {hasAnswered && (
+                <button
+                  onClick={() => {
+                    if (isLastQuestion) {
+                      resetQuiz();
+                    } else {
+                      nextQuestion();
+                    }
+                  }}
+                  className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+                >
+                  {isLastQuestion ? 'Restart Quiz' : 'Next Question'}
+                </button>
+              )}
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+    </>
   );
 }
