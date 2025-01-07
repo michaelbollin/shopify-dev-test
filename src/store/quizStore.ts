@@ -10,6 +10,7 @@ type QuizState = {
   setQuestions: (questions: Question[]) => void;
   submitAnswer: (questionId: string, answerId: string) => void;
   nextQuestion: () => void;
+  previousQuestion: () => void;
   resetQuiz: () => void;
   isAnswerCorrect: (questionId: string, answerId: string) => boolean;
   clearAnswers: () => void;
@@ -45,6 +46,13 @@ export const useQuizStore = create<QuizState>()(
           currentQuestionIndex: Math.min(
             state.currentQuestionIndex + 1,
             state.questions.length - 1
+          ),
+        })),
+      previousQuestion: () => 
+        set((state) => ({
+          currentQuestionIndex: Math.max(
+            state.currentQuestionIndex - 1,
+            0
           ),
         })),
       resetQuiz: () => 
