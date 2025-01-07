@@ -14,6 +14,7 @@ type QuizState = {
   resetQuiz: () => void;
   isAnswerCorrect: (questionId: string, answerId: string) => boolean;
   clearAnswers: () => void;
+  setCurrentQuestionById: (id: string) => void;
 };
 
 export const useQuizStore = create<QuizState>()(
@@ -73,6 +74,10 @@ export const useQuizStore = create<QuizState>()(
           currentQuestionIndex: 0,
         });
       },
+      setCurrentQuestionById: (id: string) => 
+        set((state) => ({
+          currentQuestionIndex: state.questions.findIndex(q => q.id === id)
+        })),
     }),
     {
       name: 'quiz-storage',
