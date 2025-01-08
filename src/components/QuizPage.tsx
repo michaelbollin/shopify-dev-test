@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Answer } from '@/components/Answer';
 import { useQuizStore } from '@/store/quizStore';
 import ReactMarkdown from 'react-markdown';
@@ -17,11 +17,9 @@ export function QuizPage({ initialQuestionId }: Props) {
     questions,
     currentQuestionIndex,
     userAnswers,
-    score,
     setQuestions,
     submitAnswer,
     nextQuestion,
-    resetQuiz,
     isAnswerCorrect,
     clearAnswers,
     previousQuestion,
@@ -30,13 +28,14 @@ export function QuizPage({ initialQuestionId }: Props) {
 
   const explanationRef = useRef<HTMLDivElement>(null);
   const currentQuestion = questions[currentQuestionIndex];
-  const isLastQuestion = currentQuestionIndex === questions.length - 1;
-  const hasAnswered = currentQuestion ? userAnswers[currentQuestion.id] : false;
+  const hasAnswered = Boolean(currentQuestion && userAnswers[currentQuestion.id]);
   const isCorrectAnswer = hasAnswered ? 
     isAnswerCorrect(currentQuestion.id, userAnswers[currentQuestion.id]) : 
     null;
 
-  // Load questions and set initial question
+  const [justAnswered, setJustAnswered] = useState(false);
+
+
   useEffect(() => {
     fetch('/api/questions')
       .then(res => res.json())
@@ -46,16 +45,16 @@ export function QuizPage({ initialQuestionId }: Props) {
       });
   }, [setQuestions, initialQuestionId, setCurrentQuestionById]);
 
-  // Handle navigation
+
   useEffect(() => {
     if (currentQuestion && currentQuestion.id !== initialQuestionId) {
-      router.push(`/questions/${currentQuestion.id}`);
+      router.push(`/shopify/${currentQuestion.id}`);
     }
   }, [currentQuestion, initialQuestionId, router]);
 
-  // Handle scroll to explanation
+
   useEffect(() => {
-    if (hasAnswered && !isCorrectAnswer && explanationRef.current) {
+    if (justAnswered && !isCorrectAnswer && explanationRef.current) {
       const yOffset = -100;
       const element = explanationRef.current;
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
@@ -64,34 +63,46 @@ export function QuizPage({ initialQuestionId }: Props) {
         top: y,
         behavior: 'smooth'
       });
+      setJustAnswered(false);
     }
-  }, [hasAnswered, isCorrectAnswer]);
+  }, [justAnswered, isCorrectAnswer]);
+
+
+  const handleAnswerClick = (questionId: string, answerId: string) => {
+    submitAnswer(questionId, answerId);
+    setJustAnswered(true);
+  };
 
   if (!currentQuestion) return null;
 
   return (
     <>
       <div className="fixed top-0 left-0 right-0 bg-white border-b shadow-sm z-10">
-        <div className="md:hidden">
+        <div className="lg:hidden">
           {/* Mobile header */}
           <div className="w-full h-12 flex items-center border-b">
-            <div className="w-full px-6 flex justify-between text-sm">
-              <div className="text-green-600">
-                Correct: {Object.entries(userAnswers).filter(([qId, aId]) => 
-                  isAnswerCorrect(qId, aId)
-                ).length}
+            <div className="w-full px-6 flex justify-between items-center">
+              <h1 className="text-lg font-bold">Shopify Dev Test</h1>
+              <div className="flex items-center gap-4">
+                <div className="flex gap-4 text-sm">
+                  <div className="text-green-600">
+                    Correct: {Object.entries(userAnswers).filter(([qId, aId]) => 
+                      isAnswerCorrect(qId, aId)
+                    ).length}
+                  </div>
+                  <div className="text-red-600">
+                    Wrong: {Object.entries(userAnswers).filter(([qId, aId]) => 
+                      !isAnswerCorrect(qId, aId)
+                    ).length}
+                  </div>
+                </div>
+                <button
+                  onClick={clearAnswers}
+                  className="text-sm text-gray-500 hover:text-red-500 transition-colors"
+                >
+                  Reset
+                </button>
               </div>
-              <div className="text-red-600">
-                Wrong: {Object.entries(userAnswers).filter(([qId, aId]) => 
-                  !isAnswerCorrect(qId, aId)
-                ).length}
-              </div>
-              <button
-                onClick={clearAnswers}
-                className="text-sm text-gray-500 hover:text-red-500 transition-colors"
-              >
-                Clear
-              </button>
             </div>
           </div>
           {/* Mobile navigation */}
@@ -119,18 +130,10 @@ export function QuizPage({ initialQuestionId }: Props) {
         </div>
 
         {/* Desktop header */}
-        <div className="hidden md:flex w-full h-14 items-center">
-          <div className="pl-6 flex gap-6 text-sm flex-1">
-            <div className="text-green-600">
-              Correct: {Object.entries(userAnswers).filter(([qId, aId]) => 
-                isAnswerCorrect(qId, aId)
-              ).length}
-            </div>
-            <div className="text-red-600">
-              Wrong: {Object.entries(userAnswers).filter(([qId, aId]) => 
-                !isAnswerCorrect(qId, aId)
-              ).length}
-            </div>
+        <div className="hidden lg:flex w-full h-14 items-center">
+          <div className="pl-6 flex-1">
+            <h1 className="text-xl font-bold">Shopify Dev Test</h1>
+            
           </div>
 
           <div className="max-w-2xl w-full mx-auto px-4 flex justify-between gap-4 items-center">
@@ -153,18 +156,30 @@ export function QuizPage({ initialQuestionId }: Props) {
             </button>
           </div>
 
-          <div className="pr-6 flex-1 flex justify-end">
+          <div className="pr-6 flex-1 flex justify-end items-center gap-6">
+            <div className="flex gap-4 text-sm">
+              <div className="text-green-600">
+                Correct: {Object.entries(userAnswers).filter(([qId, aId]) => 
+                  isAnswerCorrect(qId, aId)
+                ).length}
+              </div>
+              <div className="text-red-600">
+                Wrong: {Object.entries(userAnswers).filter(([qId, aId]) => 
+                  !isAnswerCorrect(qId, aId)
+                ).length}
+              </div>
+            </div>
             <button
               onClick={clearAnswers}
               className="text-sm text-gray-500 hover:text-red-500 transition-colors"
             >
-              Clear answers
+              Reset test
             </button>
           </div>
         </div>
       </div>
 
-      <div className="min-h-screen bg-gray-50 pt-28 md:pt-20 pb-8">
+      <div className="min-h-screen bg-gray-50 pt-28 lg:pt-20 pb-8">
         <div className="max-w-2xl mx-auto px-4">
           <div className="bg-white rounded-xl shadow-lg p-6">
             <div className="mb-8">
@@ -184,7 +199,7 @@ export function QuizPage({ initialQuestionId }: Props) {
                       isAnswerCorrect(currentQuestion.id, answer.id) :
                       null
                     }
-                    onClick={() => submitAnswer(currentQuestion.id, answer.id)}
+                    onClick={() => handleAnswerClick(currentQuestion.id, answer.id)}
                     disabled={hasAnswered}
                   />
                 ))}

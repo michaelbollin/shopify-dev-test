@@ -7,13 +7,12 @@ type Props = {
   params: { slug: string }
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const questions = loadQuestions();
-  const question = questions.find(q => q.id === params.slug);
+export async function generateMetadata({ params: { slug } }: Props): Promise<Metadata> {
+  const questions = await loadQuestions();
+  const question = questions.find(q => q.id === slug);
   
   if (!question) return { title: 'Question not found' };
 
-  // Clean title for meta description (remove markdown)
   const cleanTitle = question.title
     .replace(/[*#\[\]]/g, '')
     .replace(/\n/g, ' ')
@@ -31,19 +30,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  const questions = loadQuestions();
+  const questions = await loadQuestions();
   return questions.map((question) => ({
     slug: question.id,
   }));
 }
 
-export default function QuestionPage({ params }: Props) {
-  const questions = loadQuestions();
-  const currentQuestion = questions.find(q => q.id === params.slug);
+export default async function QuestionPage({ params: { slug } }: Props) {
+  const questions = await loadQuestions();
+  const currentQuestion = questions.find(q => q.id === slug);
   
   if (!currentQuestion) {
     notFound();
   }
 
-  return <QuizPage initialQuestionId={params.slug} />;
+  return <QuizPage initialQuestionId={slug} />;
 } 

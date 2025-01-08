@@ -25,7 +25,7 @@ export default function RootLayout({
           data-position="Right"
           data-x_margin="18"
           data-y_margin="18"
-          async
+          
         />
       </head>
       <body>{children}</body>

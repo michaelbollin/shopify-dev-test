@@ -6,7 +6,7 @@ export default function Home() {
   const firstQuestion = questions[0];
   
   if (firstQuestion) {
-    redirect(`/questions/${firstQuestion.id}`);
+    redirect(`/shopify/${firstQuestion.id}`);
   }
   
   return null;
