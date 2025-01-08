@@ -13,9 +13,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   
   if (!question) return { title: 'Question not found' };
 
+  // Clean title for meta description (remove markdown)
+  const cleanTitle = question.title
+    .replace(/[*#\[\]]/g, '')
+    .replace(/\n/g, ' ')
+    .trim();
+
   return {
-    title: `Quiz Question ${params.slug}`,
-    description: question.title.replace(/[*#\[\]]/g, ''), // Remove markdown
+    title: `${cleanTitle} | Quiz Question`,
+    description: `Test your knowledge: ${cleanTitle}`,
+    openGraph: {
+      title: cleanTitle,
+      description: `Quiz question about ${cleanTitle.split('?')[0]}`,
+      type: 'article',
+    },
   };
 }
 

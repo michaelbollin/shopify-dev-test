@@ -1,5 +1,5 @@
 ---
-id: "3"
+id: "typescript-keyof-satisfies"
 title: "What's the type of `result` in this TypeScript code? 🎯
 
 ```typescript

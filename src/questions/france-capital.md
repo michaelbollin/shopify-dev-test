@@ -1,5 +1,5 @@
 ---
-id: "1"
+id: "france-capital"
 title: "Which city is marked with 🎯 on this map and serves as the **capital** of France?
 
 ![France Map](/images/paris.svg)

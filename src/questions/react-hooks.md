@@ -1,5 +1,5 @@
 ---
-id: "2"
+id: "react-useeffect-closure"
 title: "What will this React Hook log? 🤔
 
 ```jsx
