@@ -6,14 +6,14 @@ title: |
     ```liquid
     {% schema %}
     {
-    'name': 'Featured Products',
-    'settings': [
+      "name": "Featured Products",
+      "settings": [
         {
-        'id': 'background',
-        'label': 'Background Color',
-        'type': '???'
+          "id": "background",
+          "label": "Background Color", 
+          "type": "???"
         }
-    ]
+      ]
     }
     {% endschema %}
     ```
@@ -26,23 +26,11 @@ answers:
     text: "colorpicker"
   - id: "d"
     text: "background_color"
-correctAnswer: "a"
+correctAnswer: "b"
 ---
 
 ### Explanation
 
-Schema setting types require specific value formats:
-
-```liquid
-"type": "color_picker"
-"default": "#ffffff"  ✅  # Hex format required
-"default": "white"    ❌  # Named colors not supported
-
-"type": "range"
-"default": 20         ✅  # Raw number
-"default": "20px"     ❌  # Units handled in template
-```
-
-Units and formatting should be applied in the template layer, not schema defaults.
+The correct type for adding a color picker in Shopify section settings is `"color"`. This will create a color picker interface in the theme editor.
 
 Reference: [Section Schema Settings](https://shopify.dev/themes/architecture/sections/section-schema) 

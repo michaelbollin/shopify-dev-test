@@ -1,7 +1,7 @@
 ---
 id: "shopify-schema-blocks"
 title: |
-  What's wrong with this section schema? 🤔
+  Can you add this section to a page via the visual theme editor? 🤔
 
   ```liquid
   {% schema %}
@@ -25,34 +25,37 @@ title: |
   ```
 answers:
   - id: "a"
-    text: "Missing max_blocks limit"
+    text: "No - missing presets configuration"
   - id: "b"
-    text: "Wrong type name for blocks"
+    text: "Yes - all required fields are present"
   - id: "c"
-    text: "Missing block template code"
+    text: "No - missing template markup"
   - id: "d"
-    text: "Missing block limit and template code"
-correctAnswer: "d"
+    text: "Yes - but blocks won't render"
+correctAnswer: "a"
 ---
 
 ### Explanation
 
-Section schema requires two critical components for block implementation:
+No, this section cannot be added through the theme editor because it's missing presets. 
 
-1. Performance constraints:
+For a section to appear in the "Add section" list, it must have a `presets` configuration:
+
 ```liquid
-"max_blocks": 12  # Prevents performance degradation
+"presets": [
+  {
+    "name": "Image Gallery",
+    "blocks": [
+      {
+        "type": "image"
+      }
+    ]
+  }
+]
 ```
 
-2. Block rendering:
-```liquid
-{% for block in section.blocks %}
-  <div {{ block.shopify_attributes }}>
-    {{ block.settings.image | image_url: width: 800 | image_tag }}
-  </div>
-{% endfor %}
-```
+Without presets, this would only work as a static section that's directly included in a layout file (like header.liquid or footer.liquid). For dynamic sections that users can add through the theme editor, presets are required.
 
-`block.shopify_attributes` enables section editor block targeting.
+Note: The section is also missing template markup which would prevent the blocks from rendering, but that's not relevant to the specific question of whether it can be added via the editor.
 
 Reference: [Section Blocks](https://shopify.dev/themes/architecture/sections/section-blocks) 
