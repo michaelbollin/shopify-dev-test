@@ -1,13 +1,12 @@
 import { redirect } from 'next/navigation';
 import { loadQuestions } from '@/utils/questionLoader';
 
-export default function Home() {
-  const questions = loadQuestions();
-  const firstQuestion = questions[0];
+export default async function Home() {
+  const questions = await loadQuestions();
   
-  if (firstQuestion) {
-    redirect(`/shopify/${firstQuestion.id}`);
+  if (questions.length > 0) {
+    redirect(`/shopify/${questions[0].id}`);
   }
-  
+
   return null;
 }

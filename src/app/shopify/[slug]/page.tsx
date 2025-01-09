@@ -4,12 +4,13 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 
 type Props = {
-  params: { slug: string }
+  params: Promise<{ slug: string }> | { slug: string }
 };
 
-export async function generateMetadata({ params: { slug } }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const resolvedParams = await Promise.resolve(params);
   const questions = await loadQuestions();
-  const question = questions.find(q => q.id === slug);
+  const question = questions.find(q => q.id === resolvedParams.slug);
   
   if (!question) return { title: 'Question not found' };
 
@@ -36,13 +37,13 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function QuestionPage({ params: { slug } }: Props) {
+export default async function QuestionPage({ params }: Props) {
   const questions = await loadQuestions();
-  const currentQuestion = questions.find(q => q.id === slug);
+  const resolvedParams = await Promise.resolve(params);
   
-  if (!currentQuestion) {
+  if (!resolvedParams.slug || !questions.find(q => q.id === resolvedParams.slug)) {
     notFound();
   }
 
-  return <QuizPage initialQuestionId={slug} />;
+  return <QuizPage initialQuestionId={resolvedParams.slug} />;
 } 

@@ -1,86 +1,45 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
-import type { Question } from '@/utils/questionLoader';
 
-type QuizState = {
-  currentQuestionIndex: number;
-  questions: Question[];
+interface Question {
+  id: string;
+  title: string;
+  content: string;
+  answers: Answer[];
+  correctAnswer: string;
+  previousId: string | null;
+  nextId: string | null;
+  index: number;
+}
+
+interface Answer {
+  id: string;
+  text: string;
+}
+
+interface QuizStore {
   userAnswers: Record<string, string>;
-  score: number;
-  setQuestions: (questions: Question[]) => void;
+  currentQuestion: Question | null;
+  setCurrentQuestion: (question: Question) => void;
   submitAnswer: (questionId: string, answerId: string) => void;
-  nextQuestion: () => void;
-  previousQuestion: () => void;
-  resetQuiz: () => void;
   isAnswerCorrect: (questionId: string, answerId: string) => boolean;
   clearAnswers: () => void;
-  setCurrentQuestionById: (id: string) => void;
-};
+  firstQuestionId: string | null;
+  setFirstQuestionId: (id: string) => void;
+}
 
-export const useQuizStore = create<QuizState>()(
-  persist(
-    (set, get) => ({
-      currentQuestionIndex: 0,
-      questions: [],
-      userAnswers: {},
-      score: 0,
-      setQuestions: (questions) => set({ questions }),
-      submitAnswer: (questionId, answerId) => 
-        set((state) => {
-          if (state.userAnswers[questionId]) return state; // Prevent changing answer
-          return {
-            userAnswers: {
-              ...state.userAnswers,
-              [questionId]: answerId,
-            },
-            score: Object.entries({
-              ...state.userAnswers,
-              [questionId]: answerId
-            }).reduce((acc, [qId, aId]) => {
-              const question = state.questions.find((q) => q.id === qId);
-              return acc + (question?.correctAnswer === aId ? 1 : 0);
-            }, 0),
-          };
-        }),
-      nextQuestion: () => 
-        set((state) => ({
-          currentQuestionIndex: Math.min(
-            state.currentQuestionIndex + 1,
-            state.questions.length - 1
-          ),
-        })),
-      previousQuestion: () => 
-        set((state) => ({
-          currentQuestionIndex: Math.max(
-            state.currentQuestionIndex - 1,
-            0
-          ),
-        })),
-      resetQuiz: () => 
-        set({
-          currentQuestionIndex: 0,
-          userAnswers: {},
-          score: 0,
-        }),
-      isAnswerCorrect: (questionId, answerId) => {
-        const question = get().questions.find(q => q.id === questionId);
-        return question?.correctAnswer === answerId;
-      },
-      clearAnswers: () => {
-        localStorage.removeItem('quiz-storage');  // Clear the persisted storage
-        set({
-          userAnswers: {},
-          score: 0,
-          currentQuestionIndex: 0,
-        });
-      },
-      setCurrentQuestionById: (id: string) => 
-        set((state) => ({
-          currentQuestionIndex: state.questions.findIndex(q => q.id === id)
-        })),
-    }),
-    {
-      name: 'quiz-storage',
-    }
-  )
-); 
+export const useQuizStore = create<QuizStore>((set, get) => ({
+  userAnswers: {},
+  currentQuestion: null,
+  firstQuestionId: null,
+  setCurrentQuestion: (question) => set({ currentQuestion: question }),
+  setFirstQuestionId: (id) => set({ firstQuestionId: id }),
+  submitAnswer: (questionId, answerId) => 
+    set((state) => ({
+      userAnswers: { ...state.userAnswers, [questionId]: answerId }
+    })),
+  isAnswerCorrect: (questionId, answerId) => {
+    const question = get().currentQuestion;
+    return question?.id === questionId && question?.correctAnswer === answerId;
+  },
+  clearAnswers: () => set({ userAnswers: {} })
+})); 

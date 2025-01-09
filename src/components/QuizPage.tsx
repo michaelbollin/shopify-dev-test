@@ -1,85 +1,79 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Answer } from '@/components/Answer';
 import { useQuizStore } from '@/store/quizStore';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 type Props = {
   initialQuestionId: string;
 };
 
+// First, let's define an interface for the Question type
+interface Answer {
+  id: string;
+  text: string;
+}
+
+interface Question {
+  id: string;
+  title: string;
+  content: string;
+  answers: Answer[];
+  correctAnswer: string;
+  previousId: string | null;
+  nextId: string | null;
+  index: number;
+}
+
 export function QuizPage({ initialQuestionId }: Props) {
   const router = useRouter();
-  const {
-    questions,
-    currentQuestionIndex,
-    userAnswers,
-    setQuestions,
-    submitAnswer,
-    nextQuestion,
-    isAnswerCorrect,
+  const { 
+    currentQuestion, 
+    setCurrentQuestion, 
+    userAnswers, 
+    submitAnswer, 
+    isAnswerCorrect, 
     clearAnswers,
-    previousQuestion,
-    setCurrentQuestionById
+    setFirstQuestionId,
+    firstQuestionId 
   } = useQuizStore();
 
-  const explanationRef = useRef<HTMLDivElement>(null);
-  const currentQuestion = questions[currentQuestionIndex];
-  const hasAnswered = Boolean(currentQuestion && userAnswers[currentQuestion.id]);
-  const isCorrectAnswer = hasAnswered ? 
-    isAnswerCorrect(currentQuestion.id, userAnswers[currentQuestion.id]) : 
-    null;
-
-  const [justAnswered, setJustAnswered] = useState(false);
-
-
+  // Store first question ID
   useEffect(() => {
-    fetch('/api/questions')
-      .then(res => res.json())
-      .then(questions => {
-        setQuestions(questions);
-        setCurrentQuestionById(initialQuestionId);
-      });
-  }, [setQuestions, initialQuestionId, setCurrentQuestionById]);
-
-
-  useEffect(() => {
-    if (currentQuestion && currentQuestion.id !== initialQuestionId) {
-      router.push(`/shopify/${currentQuestion.id}`);
+    if (!firstQuestionId) {
+      setFirstQuestionId(initialQuestionId);
     }
-  }, [currentQuestion, initialQuestionId, router]);
+  }, [initialQuestionId, firstQuestionId, setFirstQuestionId]);
 
-
-  useEffect(() => {
-    if (justAnswered && !isCorrectAnswer && explanationRef.current) {
-      const yOffset = -100;
-      const element = explanationRef.current;
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      
-      window.scrollTo({
-        top: y,
-        behavior: 'smooth'
-      });
-      setJustAnswered(false);
+  const handleReset = () => {
+    clearAnswers();
+    if (firstQuestionId) {
+      router.push(`/shopify/${firstQuestionId}`);
     }
-  }, [justAnswered, isCorrectAnswer]);
-
-
-  const handleAnswerClick = (questionId: string, answerId: string) => {
-    submitAnswer(questionId, answerId);
-    setJustAnswered(true);
   };
 
-  if (!currentQuestion) return null;
+  useEffect(() => {
+    fetch(`/api/questions/${initialQuestionId}`)
+      .then(res => res.json())
+      .then(question => {
+        setCurrentQuestion(question);
+      });
+  }, [initialQuestionId, setCurrentQuestion]);
+
+  const hasAnswered = Boolean(currentQuestion && userAnswers[currentQuestion.id]);
+  const isCorrectAnswer = hasAnswered && currentQuestion ? 
+    isAnswerCorrect(currentQuestion.id, userAnswers[currentQuestion.id]) : 
+    null;
 
   return (
     <>
       <div className="fixed top-0 left-0 right-0 bg-white border-b shadow-sm z-10">
+        {/* Mobile header */}
         <div className="lg:hidden">
-          {/* Mobile header */}
           <div className="w-full h-12 flex items-center border-b">
             <div className="w-full px-6 flex justify-between items-center">
               <h1 className="text-lg font-bold">Shopify Dev Test</h1>
@@ -97,7 +91,7 @@ export function QuizPage({ initialQuestionId }: Props) {
                   </div>
                 </div>
                 <button
-                  onClick={clearAnswers}
+                  onClick={handleReset}
                   className="text-sm text-gray-500 hover:text-red-500 transition-colors"
                 >
                   Reset
@@ -108,52 +102,79 @@ export function QuizPage({ initialQuestionId }: Props) {
           {/* Mobile navigation */}
           <div className="w-full h-12 flex items-center">
             <div className="w-full px-4 flex justify-between gap-4 items-center">
-              <button
-                onClick={() => previousQuestion()}
-                disabled={currentQuestionIndex === 0}
-                className="px-4 py-1 border border-blue-500 text-blue-500 rounded-lg hover:bg-blue-50 transition-colors disabled:opacity-50 disabled:hover:bg-transparent"
+              <Link
+                href={`/shopify/${currentQuestion?.previousId}`}
+                prefetch={true}
+                className={`px-4 py-1 border rounded-lg transition-colors ${
+                  currentQuestion?.previousId 
+                    ? 'border-blue-500 text-blue-500 hover:bg-blue-50' 
+                    : 'border-gray-200 text-gray-300 cursor-not-allowed'
+                }`}
+                aria-disabled={!currentQuestion?.previousId}
+                onClick={e => !currentQuestion?.previousId && e.preventDefault()}
               >
                 ← Previous
-              </button>
+              </Link>
               <div className="text-sm font-medium">
-                Question {currentQuestionIndex + 1} of {questions.length}
+                Question {currentQuestion?.index ? currentQuestion.index + 1 : 1}
               </div>
-              <button
-                onClick={() => nextQuestion()}
-                disabled={currentQuestionIndex === questions.length - 1}
-                className="px-4 py-1 border border-blue-500 text-blue-500 rounded-lg hover:bg-blue-50 transition-colors disabled:opacity-50 disabled:hover:bg-transparent"
+              <Link
+                href={`/shopify/${currentQuestion?.nextId}`}
+                prefetch={true}
+                className={`px-4 py-1 border rounded-lg transition-colors ${
+                  currentQuestion?.nextId 
+                    ? 'border-blue-500 text-blue-500 hover:bg-blue-50' 
+                    : 'border-gray-200 text-gray-300 cursor-not-allowed'
+                }`}
+                aria-disabled={!currentQuestion?.nextId}
+                onClick={e => !currentQuestion?.nextId && e.preventDefault()}
               >
                 Next →
-              </button>
+              </Link>
             </div>
           </div>
         </div>
 
-        {/* Desktop header */}
+        {/* Desktop header - similar changes */}
         <div className="hidden lg:flex w-full h-14 items-center">
           <div className="pl-6 flex-1">
             <h1 className="text-xl font-bold">Shopify Dev Test</h1>
-            
           </div>
 
           <div className="max-w-2xl w-full mx-auto px-4 flex justify-between gap-4 items-center">
-            <button
-              onClick={() => previousQuestion()}
-              disabled={currentQuestionIndex === 0}
-              className="px-4 py-1 border border-blue-500 text-blue-500 rounded-lg hover:bg-blue-50 transition-colors disabled:opacity-50 disabled:hover:bg-transparent"
-            >
-              ← Previous
-            </button>
+           
+              <Link
+                href={`/shopify/${currentQuestion?.previousId}`}
+                prefetch={true}
+                className={`px-4 py-1 border rounded-lg transition-colors ${
+                  currentQuestion?.previousId 
+                    ? 'border-blue-500 text-blue-500 hover:bg-blue-50' 
+                    : 'border-gray-200 text-gray-300 cursor-not-allowed'
+                }`}
+                aria-disabled={!currentQuestion?.previousId}
+                onClick={e => !currentQuestion?.previousId && e.preventDefault()}
+              >
+                ← Previous
+              </Link>
+        
             <div className="text-sm font-medium">
-              Question {currentQuestionIndex + 1} of {questions.length}
+              Question {currentQuestion?.index ? currentQuestion.index + 1 : 1}
             </div>
-            <button
-              onClick={() => nextQuestion()}
-              disabled={currentQuestionIndex === questions.length - 1}
-              className="px-4 py-1 border border-blue-500 text-blue-500 rounded-lg hover:bg-blue-50 transition-colors disabled:opacity-50 disabled:hover:bg-transparent"
-            >
-              Next →
-            </button>
+           
+              <Link
+                href={`/shopify/${currentQuestion?.nextId}`}
+                prefetch={true}
+                className={`px-4 py-1 border rounded-lg transition-colors ${
+                  currentQuestion?.nextId 
+                    ? 'border-blue-500 text-blue-500 hover:bg-blue-50' 
+                    : 'border-gray-200 text-gray-300 cursor-not-allowed'
+                }`}
+                aria-disabled={!currentQuestion?.nextId}
+                onClick={e => !currentQuestion?.nextId && e.preventDefault()}
+              >
+                Next →
+              </Link>
+        
           </div>
 
           <div className="pr-6 flex-1 flex justify-end items-center gap-6">
@@ -170,10 +191,10 @@ export function QuizPage({ initialQuestionId }: Props) {
               </div>
             </div>
             <button
-              onClick={clearAnswers}
+              onClick={handleReset}
               className="text-sm text-gray-500 hover:text-red-500 transition-colors"
             >
-              Reset test
+              Reset
             </button>
           </div>
         </div>
@@ -184,12 +205,13 @@ export function QuizPage({ initialQuestionId }: Props) {
           <div className="bg-white rounded-xl shadow-lg p-6">
             <div className="mb-8">
               <div className="prose dark:prose-invert max-w-none mb-4">
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                  {currentQuestion.title}
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}>
+                    {currentQuestion?.title}
                 </ReactMarkdown>
               </div>
               <div className="space-y-3">
-                {currentQuestion.answers.map((answer) => (
+                {currentQuestion?.answers.map((answer: Answer) => (
                   <Answer
                     key={answer.id}
                     answer={answer}
@@ -199,15 +221,15 @@ export function QuizPage({ initialQuestionId }: Props) {
                       isAnswerCorrect(currentQuestion.id, answer.id) :
                       null
                     }
-                    onClick={() => handleAnswerClick(currentQuestion.id, answer.id)}
+                    onClick={() => submitAnswer(currentQuestion.id, answer.id)}
                     disabled={hasAnswered}
+                    correctAnswer={currentQuestion.correctAnswer}
                   />
                 ))}
               </div>
               
               {hasAnswered && (
                 <div 
-                  ref={explanationRef}
                   className={`mt-4 p-4 rounded-lg ${
                     isCorrectAnswer ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'
                   }`}
@@ -217,7 +239,7 @@ export function QuizPage({ initialQuestionId }: Props) {
                   </p>
                   <div className="prose prose-sm dark:prose-invert max-w-none">
                     <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                      {currentQuestion.content}
+                      {currentQuestion?.content}
                     </ReactMarkdown>
                   </div>
                 </div>

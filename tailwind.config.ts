@@ -2,16 +2,25 @@ import type { Config } from "tailwindcss";
 
 export default {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
+      typography: {
+        DEFAULT: {
+          css: {
+            'code': {
+              backgroundColor: '#f3f4f6',
+              padding: '1em',
+              borderRadius: '0.5rem',
+              fontSize: '0.875em',
+              fontFamily: 'Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace',
+              display: 'block',
+              whiteSpace: 'pre'
+            }
+          }
+        }
+      }
     },
   },
   plugins: [
