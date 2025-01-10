@@ -23,11 +23,6 @@ The `unless` tag is a negative conditional in Liquid:
 {% unless product.available %}
   This product is sold out
 {% endunless %}
-
-<!-- Same as -->
-{% if product.available != true %}
-  This product is sold out
-{% endif %}
 ```
 
 Key points:
