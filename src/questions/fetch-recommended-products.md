@@ -11,7 +11,7 @@ answers:
   - id: "c"
     text: "/recommendations/products.json?product_id=1"
   - id: "d"
-    text: "/recommendations" (on active product page)
+    text: "/recommendations (on active product page)"
 correctAnswer: "c"
 ---
 
