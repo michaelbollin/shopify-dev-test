@@ -18,6 +18,7 @@ interface Answer {
 
 interface QuizStore {
   userAnswers: Record<string, string>;
+  correctAnswers: Record<string, boolean>;
   currentQuestion: Question | null;
   setCurrentQuestion: (question: Question) => void;
   submitAnswer: (questionId: string, answerId: string) => void;
@@ -29,17 +30,23 @@ interface QuizStore {
 
 export const useQuizStore = create<QuizStore>((set, get) => ({
   userAnswers: {},
+  correctAnswers: {},
   currentQuestion: null,
   firstQuestionId: null,
   setCurrentQuestion: (question) => set({ currentQuestion: question }),
   setFirstQuestionId: (id) => set({ firstQuestionId: id }),
-  submitAnswer: (questionId, answerId) => 
-    set((state) => ({
-      userAnswers: { ...state.userAnswers, [questionId]: answerId }
-    })),
-  isAnswerCorrect: (questionId, answerId) => {
+  submitAnswer: (questionId, answerId) => {
     const question = get().currentQuestion;
-    return question?.id === questionId && question?.correctAnswer === answerId;
+    const isCorrect = question?.correctAnswer === answerId;
+    
+    set((state) => ({
+      userAnswers: { ...state.userAnswers, [questionId]: answerId },
+      correctAnswers: { ...state.correctAnswers, [questionId]: isCorrect }
+    }));
   },
-  clearAnswers: () => set({ userAnswers: {} })
+  isAnswerCorrect: (questionId, answerId) => {
+    const { correctAnswers } = get();
+    return correctAnswers[questionId] ?? false;
+  },
+  clearAnswers: () => set({ userAnswers: {}, correctAnswers: {} })
 })); 

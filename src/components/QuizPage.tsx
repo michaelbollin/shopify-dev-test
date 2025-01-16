@@ -27,6 +27,7 @@ interface Question {
   previousId: string | null;
   nextId: string | null;
   index: number;
+  totalQuestions: number;
 }
 
 export function QuizPage({ initialQuestionId }: Props) {
@@ -39,7 +40,7 @@ export function QuizPage({ initialQuestionId }: Props) {
     isAnswerCorrect, 
     clearAnswers,
     setFirstQuestionId,
-    firstQuestionId 
+    firstQuestionId
   } = useQuizStore();
 
   // Store first question ID
@@ -116,7 +117,7 @@ export function QuizPage({ initialQuestionId }: Props) {
                 ← Previous
               </Link>
               <div className="text-sm font-medium">
-                Question {currentQuestion?.index ? currentQuestion.index + 1 : 1}
+                Question {currentQuestion?.index ? currentQuestion.index + 1 : 1} of {currentQuestion?.totalQuestions}
               </div>
               <Link
                 href={`/shopify/${currentQuestion?.nextId}`}
@@ -158,7 +159,7 @@ export function QuizPage({ initialQuestionId }: Props) {
               </Link>
         
             <div className="text-sm font-medium">
-              Question {currentQuestion?.index ? currentQuestion.index + 1 : 1}
+              Question {currentQuestion?.index ? currentQuestion.index + 1 : 1} of {currentQuestion?.totalQuestions}
             </div>
            
               <Link
