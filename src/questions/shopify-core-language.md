@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "Ruby"
 correctAnswer: "d"
+seo:
+  title: "Shopify Core Platform Language - What is the primary language?"
+  description: "Learn the primary programming language used in Shopify's core platform."
 ---
 
 ### Explanation

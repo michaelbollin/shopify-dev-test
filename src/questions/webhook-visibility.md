@@ -1,6 +1,6 @@
 ---
 title: |
-  You receive webhooks from a Shopify store but cannot see any webhooks in the webhook list in the dashboard. What could be the reason? 🔔
+  You receive webhooks from a Shopify store but cannot see any webhooks in the webhook list in the dashboard. What can be the reason? 🔔
 
 answers:
   - id: "a"
@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "This is impossible - all webhooks must be visible in the dashboard"
 correctAnswer: "b"
+seo:
+  title: "Shopify Webhook Visibility - Admin API Webhooks"
+  description: "Learn how Shopify webhooks are managed and visible in the admin dashboard."
 ---
 
 ### Explanation

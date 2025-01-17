@@ -16,6 +16,9 @@ answers:
   - id: "d"
     text: "collection.products.title"
 correctAnswer: "a"
+seo:
+  title: "Shopify Liquid Filters - map and join"
+  description: "Learn how to use the `map` filter in Shopify Liquid to extract property values from an array of objects and join them with a delimiter."
 ---
 
 ### Explanation

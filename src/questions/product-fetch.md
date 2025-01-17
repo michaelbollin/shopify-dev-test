@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "We cannot fetch a single product with Ajax, only with Liquid"
 correctAnswer: "a"
+seo:
+  title: "Shopify Ajax Product Fetch - Correct Endpoint"
+  description: "Learn how to fetch a single product in Shopify using Ajax."
 ---
 
 ### Explanation

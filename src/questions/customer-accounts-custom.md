@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "Yes, using full-page app extensions"
 correctAnswer: "d"
+seo:
+  title: "Custom Pages in Shopify-Hosted Customer Accounts"
+  description: "Learn about creating custom pages in Shopify-hosted Customer Accounts and understand the requirements for implementing custom functionality in the customer portal."
 ---
 
 ### Explanation

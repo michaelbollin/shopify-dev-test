@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "templates/blog-post.liquid"
 correctAnswer: "b"
+seo:
+  title: "Blog template file for displaying a single article in Shopify"
+  description: "Learn about the blog template file for displaying a single article in Shopify"
 ---
 
 ### Explanation

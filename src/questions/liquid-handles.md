@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "Can only contain letters, no numbers or symbols"
 correctAnswer: "c"
+seo:
+  title: "Shopify Liquid Handles - structure and forbidden characters"
+  description: "Learn how to create a contact form in Shopify using the correct Liquid syntax."
 ---
 
 ### Explanation

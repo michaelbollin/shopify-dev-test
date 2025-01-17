@@ -17,6 +17,9 @@ answers:
   - id: "d"
     text: "Only when viewing the first variant of a product"
 correctAnswer: "b"
+seo:
+  title: "Shopify Liquid Objects - product.selected_variant conditional display"
+  description: "Learn how to use the `product.selected_variant` object in Shopify Liquid to get the currently selected variant."
 ---
 
 ### Explanation

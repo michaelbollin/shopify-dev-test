@@ -17,6 +17,9 @@ answers:
   - id: "d"
     text: "{{ cart.discounts[0].code }}"
 correctAnswer: "c"
+seo:
+  title: "Shopify Cart Discount Code: Accessing Applied Discounts"
+  description: "Learn how to access and display the applied discount code in Shopify using Liquid code."
 ---
 
 ### Explanation

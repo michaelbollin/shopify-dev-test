@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "Creating new products"
 correctAnswer: "d"
+seo:
+  title: "Shopify API Comparison: Key Differences Between Storefront API vs REST Admin API Features"
+  description: "Test your knowledge of Shopify's Storefront API and REST Admin API with this quiz question."
 ---
 
 ### Explanation

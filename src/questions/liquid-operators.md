@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "in"
 correctAnswer: "b"
+seo:
+  title: "Shopify Liquid Operators - substring inside a string or array"
+  description: "Learn how to use the `contains` operator in Shopify Liquid to check for the presence of a substring inside a string or array."
 ---
 
 ### Explanation

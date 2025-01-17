@@ -2,10 +2,11 @@
 
 import { useQuizStore } from '@/store/quizStore';
 import Link from 'next/link';
-
+import { useRouter } from 'next/navigation';
 
 export function QuizFinish() {
-  const { userAnswers, isAnswerCorrect } = useQuizStore();
+  const { userAnswers, isAnswerCorrect, clearAnswers } = useQuizStore();
+  const router = useRouter();
   
   const correctAnswers = Object.entries(userAnswers).filter(([qId, aId]) => 
     isAnswerCorrect(qId, aId)
@@ -13,6 +14,11 @@ export function QuizFinish() {
   
   const totalAnswered = Object.keys(userAnswers).length;
   const score = Math.round((correctAnswers / totalAnswered) * 100) || 0;
+
+  const handleStartOver = () => {
+    clearAnswers();
+    router.push('/');
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
@@ -37,22 +43,25 @@ export function QuizFinish() {
             </div>
           </div>
 
-          <div className="space-x-4 flex">
-            <Link 
-              href="/"
-              className="block w-full px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+          <div className="space-y-4 flex flex-col items-center">
+            <button 
+              onClick={handleStartOver}
+              className="w-1/2 px-4 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
             >
               Start Over
-            </Link>
-            
-            <button
-              onClick={() => {
-                (document.querySelector('#bmc-wbtn') as HTMLElement)?.click()
-              }}
-              className="block w-full px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
-            >
-              ☕ Buy Me a Coffee
             </button>
+            
+            <div className="pt-4 w-1/2">
+              <p className="text-gray-600 mb-2">You liked the test? Support me and:</p>
+              <button
+                onClick={() => {
+                  (document.querySelector('#bmc-wbtn') as HTMLElement)?.click()
+                }}
+                className="w-full px-4 py-3 bg-[#40DCA5] text-black rounded-lg hover:bg-opacity-90 transition-colors"
+              >
+                ☕ Buy Me a Coffee
+              </button>
+            </div>
           </div>
         </div>
       </div>

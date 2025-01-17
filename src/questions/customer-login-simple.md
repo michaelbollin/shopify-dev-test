@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "{% if customer.active %}"
 correctAnswer: "a"
+seo:
+  title: "How to Check if a Customer is Logged In in Shopify Liquid"
+  description: "Learn how to check if a customer is logged in in Shopify using Liquid code. Understand the difference between customer and customer.has_account."
 ---
 
 ### Explanation

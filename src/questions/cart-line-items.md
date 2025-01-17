@@ -31,6 +31,9 @@ answers:
   - id: "d"
     text: "2"
 correctAnswer: "a"
+seo:
+  title: "Iterate through cart line items in Shopify"
+  description: "Master Shopify Liquid templating by learning how to iterate and calculate totals from cart line items. Practice with real-world examples and test your knowledge."
 ---
 
 ### Explanation

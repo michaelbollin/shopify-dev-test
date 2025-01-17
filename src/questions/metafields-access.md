@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "{{ product.get_metafield('namespace', 'key') }}"
 correctAnswer: "b"
+seo:
+  title: "Shopify Metafields Access - Product Metafields"
+  description: "Learn how to access product metafields in a theme using Liquid."
 ---
 
 ### Explanation

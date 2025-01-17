@@ -31,6 +31,9 @@ answers:
   - id: "d"
     text: "Wrong property name"
 correctAnswer: "d"
+seo:
+  title: "How to properly implement an Ajax cart in Shopify"
+  description: "Learn how to properly implement an Ajax cart in Shopify with this quiz question."
 ---
 
 ### Explanation

@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "Sets the page layout to none.liquid"
 correctAnswer: "c"
+seo:
+  title: "Shopify Liquid Layout None - What is the effect"
+  description: "Learn how to use the `{% layout none %}` tag in Shopify Liquid to disable the theme wrapper."
 ---
 
 ### Explanation

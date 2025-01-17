@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "{% if request.page_type == 'product' %}"
 correctAnswer: "d"
+seo:
+  title: "Shopify Liquid Template Type and How to Check It"
+  description: "Learn how to check the current page type in Shopify Liquid using the `request.page_type` object."
 ---
 
 ### Explanation

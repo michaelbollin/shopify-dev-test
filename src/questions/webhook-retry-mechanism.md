@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "Retried webhooks contain updated payload data from the time of retry"
 correctAnswer: "b"
+seo:
+  title: "Shopify Webhook Retry Mechanism - Correct Webhook Retry"
+  description: "Learn about Shopify's webhook retry mechanism and its correct implementation."
 ---
 
 ### Explanation

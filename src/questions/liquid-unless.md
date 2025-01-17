@@ -10,8 +10,11 @@ answers:
   - id: "c"
     text: "{% unless condition %}...{% end-unless %}"
   - id: "d"
-    text: "{% not condition %}...{% endnot %}"
+    text: "There is no such tag in Shopify Liquid"
 correctAnswer: "a"
+seo:
+  title: "Shopify Liquid Unless Tag - Negative Conditional"
+  description: "Learn how to use the `{% unless %}` tag in Shopify Liquid to create a negative conditional statement."
 ---
 
 ### Explanation

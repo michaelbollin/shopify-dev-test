@@ -28,6 +28,9 @@ answers:
   - id: "d"
     text: "New"
 correctAnswer: "a"
+seo:
+  title: "Shopify Customer Tags: Conditional Logic and Output"
+  description: "Learn how to use Shopify's customer object and conditional logic to output the correct customer tag based on their tags and order count."
 ---
 
 ### Explanation

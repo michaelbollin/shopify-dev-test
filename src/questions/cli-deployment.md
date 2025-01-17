@@ -16,6 +16,9 @@ answers:
   - id: "d"
     text: "4000"
 correctAnswer: "c"
+seo:
+  title: "What is Shopify Theme Dev Default Port? (CLI Development Server Port)"
+  description: "Learn the default port number for Shopify theme development server (9292), how to run the shopify theme dev command, and configure local development settings for Shopify themes."
 ---
 
 ### Explanation

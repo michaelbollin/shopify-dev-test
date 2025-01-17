@@ -21,6 +21,9 @@ answers:
   - id: "d"
     text: "['a','b','c']"
 correctAnswer: "b"
+seo:
+  title: "Shopify Liquid Capture when using a comma separated list"
+  description: "Learn how to analyze the output of the given Liquid code snippet and understand the behavior of the `capture` tag."
 ---
 
 ### Explanation

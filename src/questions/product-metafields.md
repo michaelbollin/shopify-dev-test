@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "There is no limit to metafield definitions"
 correctAnswer: "c"
+seo:
+  title: "Shopify Metafield Definitions Limit per Resource Type"
+  description: "Learn the maximum number of metafield definitions allowed per resource type in Shopify."
 ---
 
 ### Explanation

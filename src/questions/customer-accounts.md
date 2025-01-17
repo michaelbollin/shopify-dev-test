@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "No, login is not supported anymore and you need the plugin"
 correctAnswer: "b"
+seo:
+  title: "Shopify Customer Accounts: Email/Password Login Support"
+  description: "Learn about the availability of email/password login for Shopify customer accounts and understand the implications for implementing customer login functionality."
 ---
 
 ### Explanation

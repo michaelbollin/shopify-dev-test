@@ -20,6 +20,9 @@ answers:
       {{ content_for_header }} in <body>
       {{ content_for_layout }} in <head>
 correctAnswer: "a"
+seo:
+  title: "Shopify Layout File: Required Tags"
+  description: "Learn which Liquid tags are required in a valid Shopify layout file and how to use them correctly."
 ---
 
 ### Explanation

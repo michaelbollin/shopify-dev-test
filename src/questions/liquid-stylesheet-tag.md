@@ -16,6 +16,9 @@ answers:
     text: |
       In snippets to add reusable styles
 correctAnswer: "b"
+seo:
+  title: "Shopify Liquid Stylesheet Tag - Section-Specific Styles"
+  description: "Learn how to use the `{% stylesheet %}` tag in Shopify Liquid to define styles for a specific section."
 ---
 
 ### Explanation

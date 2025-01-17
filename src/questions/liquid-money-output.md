@@ -17,6 +17,9 @@ answers:
   - id: "d"
     text: "$1.999 $19.99"
 correctAnswer: "b"
+seo:
+  title: "Shopify Liquid Money Output with round filter"
+  description: "Learn how to analyze the output of the given Liquid code snippet and understand the behavior of the `money` filter."
 ---
 
 ### Explanation

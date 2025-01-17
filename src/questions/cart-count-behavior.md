@@ -20,6 +20,9 @@ answers:
   - id: "d"
     text: "3.0 (float number)"
 correctAnswer: "b"
+seo:
+  title: "Total cart item count in Shopify variable"
+  description: "Learn how to calculate cart item count in Shopify with this quiz question."
 ---
 
 ### Explanation

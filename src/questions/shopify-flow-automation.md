@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "Through customer metafields"
 correctAnswer: "c"
+seo:
+  title: "Shopify Automation - Automatically Tag VIP Customers"
+  description: "Learn how to automatically tag customers as VIP when they spend over $500 using Shopify Flow."
 ---
 
 ### Explanation

@@ -20,6 +20,9 @@ answers:
   - id: "d"
     text: "1ab2"
 correctAnswer: "a"
+seo:
+  title: "Shopify Liquid Forloop Output with forloop.first, forloop.last, forloop.index"
+  description: "Learn how to analyze the output of the given Liquid code snippet and understand the behavior of the `forloop` object."
 ---
 
 ### Explanation

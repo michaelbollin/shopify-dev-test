@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "A tool for tracking online store profits"
 correctAnswer: "b"
+seo:
+  title: "Shopify POS - What is it and what does it do?"
+  description: "Learn about Shopify POS, a retail hardware and software solution for in-person selling."
 ---
 
 ### Explanation

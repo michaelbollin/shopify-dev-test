@@ -13,6 +13,10 @@ answers:
     text: "A product can have up to 100 options and 100 variants"
 correctAnswer: "b"
 ---
+seo:
+  title: "Shopify Product Variants - Maximum Options and Variants"
+  description: "Learn the maximum number of options and variants allowed per product in Shopify."
+---
 
 ### Explanation
 

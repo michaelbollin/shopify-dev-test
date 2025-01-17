@@ -25,6 +25,9 @@ answers:
     text: |
       Gets moved to theme.js file automatically
 correctAnswer: "c"
+seo:
+  title: "Shopify Sections JavaScript - Scope and transformation"
+  description: "Learn how Shopify sections handle JavaScript code and its placement in the page."
 ---
 
 ### Explanation

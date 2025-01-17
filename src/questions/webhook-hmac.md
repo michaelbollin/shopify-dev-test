@@ -17,6 +17,9 @@ answers:
   - id: "d"
     text: "Verify OAuth access token"
 correctAnswer: "b"
+seo:
+  title: "Shopify Webhook Validation - Secure Webhook Verification"
+  description: "Learn how to securely verify Shopify webhooks using HMAC signatures."
 ---
 
 ### Explanation

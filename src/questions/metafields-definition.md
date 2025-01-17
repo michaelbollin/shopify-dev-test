@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "In metafields_schema.json"
 correctAnswer: "a"
+seo:
+  title: "Shopify Metafields Definition - How to define metafields for theme access"
+  description: "Learn where to define metafields for theme access in Shopify."
 ---
 
 ### Explanation

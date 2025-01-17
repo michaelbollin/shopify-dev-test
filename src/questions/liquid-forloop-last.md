@@ -17,6 +17,9 @@ answers:
   - id: "d"
     text: "tag1, tag2, tag3"
 correctAnswer: "d"
+seo:
+  title: "Shopify Liquid Forloop Last - comma separated list"
+  description: "Learn how to use the `forloop.last` object in Shopify Liquid to create a comma-separated list of tags without a trailing comma."
 ---
 
 ### Explanation

@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "| int"
 correctAnswer: "a"
+seo:
+  title: "Shopify Liquid Math - round filter"
+  description: "Learn how to round a number to the nearest integer in Shopify Liquid."
 ---
 
 ### Explanation

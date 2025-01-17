@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "| ascending"
 correctAnswer: "a"
+seo:
+  title: "Shopify Liquid Array Sorting: Ascending Order"
+  description: "Learn how to sort an array in ascending order using the `sort` filter in Shopify Liquid."
 ---
 
 ### Explanation

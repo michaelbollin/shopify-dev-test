@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "To provide better performance than metafields"
 correctAnswer: "b"
+seo:
+  title: "Shopify Metaobjects Purpose - Metaobjects vs Metafields"
+  description: "Learn the purpose of metaobjects in Shopify compared to metafields."
 ---
 
 ### Explanation

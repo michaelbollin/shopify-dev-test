@@ -16,6 +16,9 @@ answers:
   - id: "d"
     text: "{% for product in my_collection.items %}"
 correctAnswer: "c"
+seo:
+  title: "How to Loop Through Products in a Shopify Collection"
+  description: "Learn how to loop through products in a Shopify collection using Liquid code. "
 ---
 
 ### Explanation

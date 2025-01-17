@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "You need to provide theme ID with --theme flag"
 correctAnswer: "b"
+seo:
+  title: "What is the Default Theme for Shopify Theme Dev? (CLI Development Theme)"
+  description: "Learn the default theme used for Shopify theme development (development theme), how to run the shopify theme dev command, and configure local development settings for Shopify themes."
 ---
 
 ### Explanation

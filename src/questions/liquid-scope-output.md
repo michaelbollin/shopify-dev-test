@@ -19,6 +19,9 @@ answers:
   - id: "d"
     text: "Error: Variable reassignment not allowed"
 correctAnswer: "b"
+seo:
+  title: "Shopify Liquid Scope Output - Variable Reassignment"
+  description: "Learn how variable reassignment works in Shopify Liquid and how it affects the output of the given code snippet."
 ---
 
 ### Explanation

@@ -18,6 +18,9 @@ answers:
   - id: "d"
     text: "1 2 1"
 correctAnswer: "c"
+seo:
+  title: "Shopify Liquid Capture Increment: Output Analysis"
+  description: "Learn how to analyze the output of the given Liquid code snippet and understand the behavior of the `increment` and `capture` tags."
 ---
 
 ### Explanation

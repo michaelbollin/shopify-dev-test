@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "XML-RPC API"
 correctAnswer: "c"
+seo:
+  title: "What type of API is Shopify's Storefront API? REST vs GraphQL"
+  description: "Test your knowledge about Shopify's Storefront API architecture"
 ---
 
 ### Explanation

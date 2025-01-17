@@ -23,6 +23,9 @@ answers:
   - id: "d"
     text: "HelloWorld123"
 correctAnswer: "a"
+seo:
+  title: "Shopify Liquid Capture Output: Hello World"
+  description: "Learn how to analyze the output of the given Liquid code snippet and understand the behavior of the `capture` tag."
 ---
 
 ### Explanation

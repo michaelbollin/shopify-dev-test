@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "| no_html"
 correctAnswer: "a"
+seo:
+  title: "Shopify Liquid String Manipulation - Truncating HTML"
+  description: "Learn how to remove HTML tags from a string in Shopify Liquid using the `strip_html` filter."
 ---
 
 ### Explanation

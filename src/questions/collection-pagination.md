@@ -23,6 +23,9 @@ answers:
   - id: "d"
     text: "Page of 2"
 correctAnswer: "d"
+seo:
+  title: "Collection Pagination in Shopify"
+  description: "Learn how to use Shopify's collection pagination feature with Liquid code. Understand the correct property to use for the current page and total pages."
 ---
 
 ### Explanation

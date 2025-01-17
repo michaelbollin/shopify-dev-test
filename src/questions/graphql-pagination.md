@@ -24,6 +24,9 @@ answers:
   - id: "d"
     text: "Empty array"
 correctAnswer: "c"
+seo:
+  title: "Shopify GraphQL Pagination: Fetching Large Datasets limit"
+  description: "Learn how to handle pagination in Shopify GraphQL API to fetch large datasets efficiently."
 ---
 
 ### Quick Explanation

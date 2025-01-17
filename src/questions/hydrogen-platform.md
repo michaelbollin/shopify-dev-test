@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "PHP and Laravel"
 correctAnswer: "c"
+seo:
+  title: "Shopify Hydrogen: Building Custom Storefronts"
+  description: "Learn how Shopify Hydrogen is built, providing a modern framework for creating custom storefronts."
 ---
 
 ### Explanation

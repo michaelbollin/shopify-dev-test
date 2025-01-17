@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "q, resources[type], and limit"
 correctAnswer: "b"
+seo:
+  title: "Shopify Predictive Search API - Required Parameters"
+  description: "Learn which parameters are required for Shopify's predictive search API."
 ---
 
 ### Explanation

@@ -19,6 +19,9 @@ answers:
   - id: "d"
     text: "<div>\n    In stock!\n</div>"
 correctAnswer: "b"
+seo:
+  title: "Shopify Liquid Whitespace Control"
+  description: "Learn how to control whitespace in Shopify Liquid output tags."
 ---
 
 ### Explanation

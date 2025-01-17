@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "/recommendations (on active product page)"
 correctAnswer: "c"
+seo:
+  title: "Shopify Recommended Products: Fetching Recommendations"
+  description: "Learn how to fetch recommended products in Shopify using the correct endpoint and parameters."
 ---
 
 ### Explanation

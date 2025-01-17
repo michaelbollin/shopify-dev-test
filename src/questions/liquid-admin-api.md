@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "Yes, but it's highly insecure because it requires a secret token in the template"
 correctAnswer: "d"
+seo:
+  title: "Shopify Liquid Admin API: Security Risks - Secret Token"
+  description: "Learn why calling Shopify REST Admin API directly from template JavaScript is highly insecure and should never be done."
 ---
 
 ### Explanation

@@ -18,6 +18,9 @@ answers:
   - id: "d"
     text: "All is fine with this code"
 correctAnswer: "d"
+seo:
+  title: "Shopify Liquid Where Filter - Available Products"
+  description: "Learn how to use the `where` filter in Shopify Liquid to filter products based on availability."
 ---
 
 ### Explanation

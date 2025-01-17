@@ -25,6 +25,9 @@ answers:
   - id: "d"
     text: "{{ heading }}"
 correctAnswer: "c"
+seo:
+  title: "Shopify Section Variable - Accessing Section Settings"
+  description: "Learn how to access section settings in Shopify Liquid."
 ---
 
 ### Explanation

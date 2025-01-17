@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "customers/change"
 correctAnswer: "c"
+seo:
+  title: "Shopify Webhook Topics - Customer Updates"
+  description: "Learn which webhook topic to subscribe to for tracking customer updates in Shopify."
 ---
 
 ### Explanation

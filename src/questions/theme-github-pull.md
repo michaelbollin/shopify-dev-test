@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "Using Shopify CLI with a local development environment"
 correctAnswer: "a"
+seo:
+  title: "Shopify Theme Code Update Methods"
+  description: "Learn about the different methods to update Shopify theme code."  
 ---
 
 ### Explanation

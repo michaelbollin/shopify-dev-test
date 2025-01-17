@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "No, you must use a for loop with render separately"
 correctAnswer: "a"
+seo:
+  title: "Shopify Liquid Render Loop - Valid Syntax"
+  description: "Learn how to use the `render` tag with iteration in Shopify Liquid."
 ---
 
 ### Explanation

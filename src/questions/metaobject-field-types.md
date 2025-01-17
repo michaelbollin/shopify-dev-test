@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "json"
 correctAnswer: "d"
+seo:
+  title: "Shopify Metaobject Field Types - Valid Field Types for Metaobjects"
+  description: "Learn which field types are supported in metaobjects in Shopify."
 ---
 
 ### Explanation

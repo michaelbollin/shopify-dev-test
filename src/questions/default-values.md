@@ -26,6 +26,9 @@ answers:
   - id: "d"
     text: "We need blocks defined, evenn if empty"
 correctAnswer: "b"
+seo:
+  title: "Shopify Range Settings: Default Value and Required Fields"
+  description: "Learn how to set default values for range settings."
 ---
 
 ### Quick Explanation 🎯

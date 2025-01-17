@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "{{ shop.title }} and {{ shop.money_format }}"
 correctAnswer: "b"
+seo:
+  title: "Shopify Liquid Shop Info - Accessing Store Information"
+  description: "Learn how to access store information in Shopify Liquid."
 ---
 
 ### Explanation

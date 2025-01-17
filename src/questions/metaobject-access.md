@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "Product cannot have metaobjects directly attached to it"
 correctAnswer: "d"
+seo:
+  title: "Shopify Metaobject Access - Product Metaobjects"
+  description: "Learn how to access product metaobjects in a theme using Liquid."
 ---
 
 ### Explanation

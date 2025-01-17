@@ -11,6 +11,9 @@ answers:
   - id: "d"
     text: "var product = {%= my_product %}"
 correctAnswer: "b"
+seo:
+  title: "Shopify Liquid to JavaScript - Passing Variables"
+  description: "Learn how to safely pass Liquid variables to JavaScript in a Shopify theme."
 ---
 
 ### Explanation

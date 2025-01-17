@@ -27,6 +27,9 @@ answers:
   - id: "d"
     text: "It's missing product/variant id"
 correctAnswer: "a"
+seo:
+  title: "How to update cart attributes in Shopify"
+  description: "Learn how to update cart attributes in Shopify with this quiz question."
 ---
 
 ### Explanation

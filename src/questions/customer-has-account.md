@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "Yes, when checkout fails"
 correctAnswer: "a"
+seo:
+  title: "Shopify Customer Accounts: Guest Checkout and Account Creation"
+  description: "Learn about the availability of guest checkout and account creation in Shopify customer accounts, and understand the implications for implementing customer login functionality."
 ---
 
 ### Explanation

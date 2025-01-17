@@ -18,6 +18,9 @@ answers:
   - id: "d"
     text: "{{ product.formatted_price }}"
 correctAnswer: "b"
+seo:
+  title: "Shopify Liquid Product Price - Formatted Price"
+  description: "Learn how to display a formatted product's price in Shopify Liquid."
 ---
 
 ### Explanation

@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "Klarna"
 correctAnswer: "c"
+seo:
+  title: "Shopify Payments Technology - What powers Shopify Payments?"
+  description: "Learn about the payment processing technology powering Shopify Payments."
 ---
 
 ### Explanation

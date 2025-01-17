@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "{{ product.all_variants }}"
 correctAnswer: "c"
+seo:
+  title: "Shopify Liquid Product Variants - Access All Variants"
+  description: "Learn how to access all variants of a product in Shopify Liquid."
 ---
 
 ### Explanation

@@ -49,6 +49,9 @@ answers:
   - id: "d"
     text: "Shirt: $29.99, "
 correctAnswer: "a"
+seo:
+  title: "Shopify Collection Sorting: Sorting Products by Price in a Collection"
+  description: "Learn how to sort products by price in a Shopify collection using Liquid code."
 ---
 
 ### Explanation

@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "In the theme's templates directory"
 correctAnswer: "a"
+seo:
+  title: "Shopify Theme Custom Fonts - Where to Upload"
+  description: "Learn where to upload custom font files in a Shopify theme."
 ---
 
 ### Explanation

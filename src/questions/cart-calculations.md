@@ -29,6 +29,9 @@ answers:
   - id: "d"
     text: "$59.99 (Add 3 more items for 10% off)"
 correctAnswer: "a"
+seo:
+  title: "Cart prices calculations in Shopify"
+  description: "Learn how to calculate cart prices in Shopify with this quiz question."
 ---
 
 ### Explanation

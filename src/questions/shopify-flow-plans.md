@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "Flow features are identical across all plans"
 correctAnswer: "b"
+seo:
+  title: "Shopify Flow Availability - Across Different Plans"
+  description: "Learn about the availability and features of Shopify Flow across different plans."
 ---
 
 ### Explanation

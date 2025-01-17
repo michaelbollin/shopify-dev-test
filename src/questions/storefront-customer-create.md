@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "No, Storefront API is read-only"
 correctAnswer: "b"
+seo:
+  title: "Shopify Storefront API - Creating Customers"
+  description: "Learn how to create new customers using the Storefront API in Shopify." 
 ---
 
 ### Explanation

@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "Creates a copy of the product object without passing it to the snippet"
 correctAnswer: "a"
+seo:
+  title: "Shopify Liquid Render With / As - Product Object"
+  description: "Learn how to use the `with` keyword in Shopify Liquid to pass a single object to a snippet."
 ---
 
 ### Explanation

@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "page-homepage"
 correctAnswer: "c"
+seo:
+  title: "Shopify Liquid Body Class - Homepage Handle"
+  description: "Learn how to correctly set the body class for the homepage in Shopify Liquid."
 ---
 
 ### Explanation

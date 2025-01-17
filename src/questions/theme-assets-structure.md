@@ -22,6 +22,9 @@ answers:
   - id: "d"
     text: "The assets directory name is wrong"
 correctAnswer: "b"
+seo:
+  title: "Shopify Theme Assets Structure"
+  description: "Learn about the correct structure for theme assets in Shopify."
 ---
 
 ### Explanation

@@ -17,6 +17,9 @@ answers:
   - id: "d"
     text: "StandardNothingfalse"
 correctAnswer: "a"
+seo:
+  title: "Shopify Liquid Default Filter - truthy and falsy values"
+  description: "Learn how to use the `default` filter in Shopify Liquid to provide a fallback value when a variable is falsy."
 ---
 
 ### Explanation

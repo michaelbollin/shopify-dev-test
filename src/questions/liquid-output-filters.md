@@ -12,6 +12,10 @@ answers:
   - id: "d"
     text: "{{ product.title upcase truncate: 20 }}"
 correctAnswer: "b"
+
+seo:
+  title: "Shopify Liquid Output Filters - Multiple Filter Chaining"
+  description: "Learn how to apply multiple filters in Shopify Liquid output tags."
 ---
 
 ### Explanation

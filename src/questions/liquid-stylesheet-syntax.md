@@ -38,6 +38,9 @@ answers:
         {% endif %}
       {% endstylesheet %}
 correctAnswer: "c"
+seo:
+  title: "Shopify Liquid Stylesheet Tag - Dynamic Styles"
+  description: "Learn how to use the `{% stylesheet %}` tag in Shopify Liquid to define dynamic styles."
 ---
 
 ### Explanation

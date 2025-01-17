@@ -17,6 +17,9 @@ answers:
   - id: "d"
     text: "{{ cart.total_items }}"
 correctAnswer: "b"
+seo:
+  title: "How to Display Cart Item Count in Shopify Liquid"
+  description: "Learn how to display the cart item count in Shopify using Liquid code snippets. Compare cart.item_count vs cart.items.size with working examples for your theme."
 ---
 
 ### Explanation

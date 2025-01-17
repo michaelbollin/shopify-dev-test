@@ -28,6 +28,9 @@ answers:
         <button type="submit">Send</button>
       {% endcontact_form %}
 correctAnswer: "b"
+seo:
+  title: "Shopify Liquid Contact Form - Correct Syntax tag"
+  description: "Learn how to create a contact form in Shopify using the correct Liquid syntax."
 ---
 
 ### Explanation

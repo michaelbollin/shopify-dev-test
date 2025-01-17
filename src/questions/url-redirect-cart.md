@@ -20,7 +20,10 @@ answers:
       {% endif %}
       ```
 
-correctAnswer: "c"
+correctAnswer: "a"
+seo:
+  title: "Shopify URL Redirect - Redirecting /cart url"
+  description: "Learn how to redirect the /cart URL to /bag in Shopify without using JavaScript."
 ---
 
 ### Explanation

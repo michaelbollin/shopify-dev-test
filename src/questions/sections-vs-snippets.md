@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "There is no difference, they are just stored in different folders"
 correctAnswer: "c"
+seo:
+  title: "Shopify Sections vs Snippets - Key Differences"
+  description: "Learn the key differences between sections and snippets in Shopify themes."
 ---
 
 ### Explanation

@@ -32,6 +32,9 @@ answers:
   - id: "d"
     text: "Yes - but blocks won't render"
 correctAnswer: "a"
+seo:
+  title: "Shopify Liquid Schema Blocks - Adding a Section from the Theme Editor"
+  description: "Learn how to add a section to a page via the visual theme editor in Shopify."
 ---
 
 ### Explanation

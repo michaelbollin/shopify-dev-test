@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "frCA.json"
 correctAnswer: "c"
+seo:
+  title: "Shopify JSON Locale File Naming"
+  description: "Learn how to correctly name a French-Canadian locale file in Shopify."
 ---
 
 ### Explanation

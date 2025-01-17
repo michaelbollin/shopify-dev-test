@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "It will block next Github push"
 correctAnswer: "b"
+seo:
+  title: "Shopify Theme Editor and GitHub Integration"
+  description: "Learn how changes in the theme editor are handled when using GitHub integration in Shopify."
 ---
 
 ### Explanation

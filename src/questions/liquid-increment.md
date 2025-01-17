@@ -21,6 +21,9 @@ answers:
   - id: "d"
     text: "Nothing, code is correct"
 correctAnswer: "b"
+seo:
+  title: "Shopify Liquid Increment - Initializing the counter"
+  description: "Learn how to use increment in Shopify Liquid to create a counter."
 ---
 
 ### Explanation

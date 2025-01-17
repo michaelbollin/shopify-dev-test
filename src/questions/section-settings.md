@@ -26,6 +26,9 @@ answers:
   - id: "d"
     text: "background_color"
 correctAnswer: "b"
+seo:
+  title: "Shopify Section Schema Settings - Color Picker"
+  description: "Learn how to add a color picker to a section in Shopify using the correct schema setting."
 ---
 
 ### Explanation

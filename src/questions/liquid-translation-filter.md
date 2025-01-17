@@ -15,6 +15,9 @@ answers:
   - id: "d"
     text: "Adds HTML tags around the text for styling"
 correctAnswer: "c"
+seo:
+  title: "Shopify Liquid Translation Filter for localization"
+  description: "Learn how to use the `t` filter in Shopify Liquid to translate content based on the active language."
 ---
 
 ### Explanation

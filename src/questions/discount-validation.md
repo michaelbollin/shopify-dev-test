@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "Not possible before checkout"
 correctAnswer: "d"
+seo:
+  title: "Shopify Discount Validation: Checking Discount Codes Before Checkout"
+  description: "Learn how to validate discount codes before checkout in Shopify using Liquid code and the Storefront API."
 ---
 
 ### Explanation

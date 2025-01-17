@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "| strftime: '%month %day, %year'"
 correctAnswer: "a"
+seo:
+  title: "Shopify Liquid Date Format modifier"
+  description: "Learn how to format a date in Shopify Liquid to show as 'January 10, 2024'."
 ---
 
 ### Explanation

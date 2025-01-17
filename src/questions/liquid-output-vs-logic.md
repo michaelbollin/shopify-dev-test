@@ -12,6 +12,10 @@ answers:
   - id: "d"
     text: "{%- product.price as money -%}"
 correctAnswer: "b"
+
+seo:
+  title: "Shopify Liquid Output Filters - Price Format"
+  description: "Learn how to format prices in Shopify Liquid using the `money` filter."
 ---
 
 ### Explanation

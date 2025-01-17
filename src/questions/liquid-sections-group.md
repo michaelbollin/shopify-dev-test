@@ -16,6 +16,9 @@ answers:
     text: |
       Returns error - `sections` is not a valid tag
 correctAnswer: "b"
+seo:
+  title: "Shopify Liquid Sections Group - Multiple Sections"
+  description: "Learn how to use the `sections` tag in Shopify Liquid to render a group of related sections."
 ---
 
 ### Explanation

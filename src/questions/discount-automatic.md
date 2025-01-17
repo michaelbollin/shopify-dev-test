@@ -17,6 +17,9 @@ answers:
   - id: "d"
     text: "First discount applies to subtotal, second to remaining amount"
 correctAnswer: "c"
+seo:
+  title: "Shopify Discount Calculation: Multiple Percentage-Based Discounts"
+  description: "Learn how Shopify calculates multiple percentage-based order discounts, including the correct method for combining them."
 ---
 
 ### Explanation

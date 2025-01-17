@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "Yes, but you need to use the Admin API"
 correctAnswer: "c"
+seo:
+  title: "Shopify Sections Dynamic Loading - Section Rendering"
+  description: "Learn how to load Shopify sections dynamically using the Section Rendering API."
 ---
 
 ### Explanation

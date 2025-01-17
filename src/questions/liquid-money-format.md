@@ -29,8 +29,10 @@ answers:
       $19.99
       null
       19.99
-
 correctAnswer: "b"
+seo:
+  title: "Shopify Liquid Money Format - money, money_without_trailing_zeros, money_without_currency"
+  description: "Learn how to format prices in Shopify Liquid using the `money`, `money_without_trailing_zeros`, and `money_without_currency` filters."
 ---
 
 ### Explanation

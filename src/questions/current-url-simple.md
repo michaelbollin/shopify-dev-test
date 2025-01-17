@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "{{ shop.url }}"
 correctAnswer: "c"
+seo:
+  title: "How to Get the Current Page Path in Shopify Liquid"
+  description: "Learn how to get the current page path in Shopify using Liquid code. Understand the difference between request.path and shop.url."
 ---
 
 ### Explanation
@@ -24,6 +27,7 @@ To get the current page path:
 
 Key points:
 - `request.path` returns the path portion of the URL
+- `shop.url` returns the full URL of the store
 - Available globally
 - Useful for conditional logic
 

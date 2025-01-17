@@ -19,6 +19,9 @@ answers:
   - id: "d"
     text: "You cannot add to cart on the cart page"
 correctAnswer: "b"
+seo:
+  title: "Shopify Cart Page: Product Availability Check"
+  description: "Learn how to check product availability on the cart page in Shopify using Liquid code."
 ---
 
 ### Quick Explanation 🎯

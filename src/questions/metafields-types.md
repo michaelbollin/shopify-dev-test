@@ -12,6 +12,9 @@ answers:
   - id: "d"
     text: "{{ product.metafields.namespace.key | rich_text }}"
 correctAnswer: "b"
+seo:
+  title: "Shopify Metafields Types - Rich Text Metafields"
+  description: "Learn how to render rich text metafields in Liquid using the `metafield_tag` filter."
 ---
 
 ### Explanation
