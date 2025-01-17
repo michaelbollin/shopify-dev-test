@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { Footer } from "@/components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://quiz.michaelbollin.dev'),
+  metadataBase: new URL('https://liquidquestions.com'),
   title: {
     default: 'Shopify Development Quiz',
     template: '%s | Shopify Development Quiz'
@@ -12,13 +13,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://quiz.michaelbollin.dev',
+    url: 'https://liquidquestions.com',
     siteName: 'Shopify Development Quiz',
     title: 'Shopify Development Quiz',
     description: 'Test your knowledge of Shopify development with our comprehensive quiz.',
     images: [
       {
-        url: '/og-image.png',
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Shopify Development Quiz'
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Shopify Development Quiz',
     description: 'Test your knowledge of Shopify development with our comprehensive quiz.',
-    images: ['/og-image.png']
+    images: ['/og-image.jpg']
   },
   icons: [
     { 
@@ -61,7 +62,12 @@ export default function RootLayout({
           data-y_margin="18"
         />
       </head>
-      <body>{children}</body>
+      <body className="flex flex-col min-h-screen">
+        <div className="flex-grow">
+          {children}
+        </div>
+        <Footer />
+      </body>
     </html>
   );
 }

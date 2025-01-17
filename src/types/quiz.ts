@@ -3,6 +3,11 @@ export interface Answer {
   text: string;
 }
 
+export interface SEO {
+  title: string;
+  description: string;
+}
+
 export interface Question {
   id: string;
   title: string;
@@ -13,4 +18,5 @@ export interface Question {
   nextId: string | null;
   index: number;
   totalQuestions: number;
+  seo?: SEO;
 } 

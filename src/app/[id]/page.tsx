@@ -17,17 +17,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   
   if (!question) return { title: 'Question not found' };
 
-  const cleanTitle = question.title
-    .replace(/[*#\[\]]/g, '')
-    .replace(/\n/g, ' ')
-    .trim();
-
   return {
-    title: `${cleanTitle} | Quiz Question`,
-    description: `Test your knowledge: ${cleanTitle}`,
+    title: question.seo?.title || question.title,
+    description: question.seo?.description,
     openGraph: {
-      title: cleanTitle,
-      description: `Quiz question about ${cleanTitle.split('?')[0]}`,
+      title: question.seo?.title || question.title,
+      description: question.seo?.description,
       type: 'article',
     },
   };
@@ -51,5 +46,22 @@ export default async function QuestionPage({ params }: Props) {
     notFound();
   }
 
-  return <QuizPage initialQuestionId={question.id} />;
+  return (
+    <>
+      {/* Hidden SEO content - only visible to search engines */}
+      <div className="hidden">
+        <h1>{question.title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: question.content }} />
+        <h2>Answer Options:</h2>
+        <ul>
+          {question.answers.map(answer => (
+            <li key={answer.id}>{answer.text}</li>
+          ))}
+        </ul>
+      </div>
+      
+      {/* Interactive quiz component */}
+      <QuizPage initialQuestionId={question.id} />
+    </>
+  );
 } 
