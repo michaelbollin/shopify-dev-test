@@ -3,6 +3,14 @@
 import { useQuizStore } from '@/store/quizStore';
 import Link from 'next/link';
 
+declare global {
+  interface Window {
+    BmcWidget?: {
+      handleLoad: () => void;
+    };
+  }
+}
+
 export function QuizFinish() {
   const { userAnswers, isAnswerCorrect } = useQuizStore();
   
@@ -36,7 +44,7 @@ export function QuizFinish() {
             </div>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-x-4 flex">
             <Link 
               href="/"
               className="block w-full px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
@@ -44,14 +52,14 @@ export function QuizFinish() {
               Start Over
             </Link>
             
-            <a
-              href="https://www.buymeacoffee.com/michaelbollin"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => {
+                (document.querySelector('#bmc-wbtn') as HTMLElement)?.click()
+              }}
               className="block w-full px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
             >
               ☕ Buy Me a Coffee
-            </a>
+            </button>
           </div>
         </div>
       </div>

@@ -35,7 +35,7 @@ export function QuizHeader({ currentQuestion, userAnswers, isAnswerCorrect, hand
       <div className="lg:hidden">
         <div className="w-full h-12 flex items-center border-b">
           <div className="w-full px-6 flex justify-between items-center">
-            <h1 className="text-lg font-bold">Shopify Dev Test</h1>
+            <h1 className="text-lg font-bold">Shopify Free Test</h1>
             <div className="flex items-center gap-4">
               <div className="flex gap-4 text-sm">
                 <div className="text-green-600">

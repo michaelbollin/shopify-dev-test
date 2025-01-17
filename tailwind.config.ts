@@ -10,12 +10,15 @@ export default {
         DEFAULT: {
           css: {
             'code': {
-              backgroundColor: '#f3f4f6',
-              padding: '1em',
-              borderRadius: '0.5rem',
+              backgroundColor: '#EEEEEE',
+              color: '#333333',
+              overflowX:'auto',
+              padding: '2px',
+              top:'8px',
+              position:'relative',
+              display:'inline-block',
               fontSize: '0.875em',
               fontFamily: 'Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace',
-              display: 'block',
               whiteSpace: 'pre'
             }
           }
