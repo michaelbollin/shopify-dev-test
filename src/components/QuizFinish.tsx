@@ -3,13 +3,6 @@
 import { useQuizStore } from '@/store/quizStore';
 import Link from 'next/link';
 
-declare global {
-  interface Window {
-    BmcWidget?: {
-      handleLoad: () => void;
-    };
-  }
-}
 
 export function QuizFinish() {
   const { userAnswers, isAnswerCorrect } = useQuizStore();

@@ -1,9 +1,5 @@
-'use client';
-
 import type { Metadata } from "next";
 import "./globals.css";
-import { useQuizStore } from "@/store/quizStore";
-import { useEffect } from "react";
 
 export const metadata: Metadata = {
   title: "Quiz App",
@@ -22,15 +18,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const initQuestions = useQuizStore(state => state.initQuestions);
-
-  useEffect(() => {
-    initQuestions();
-  }, [initQuestions]);
-
   return (
     <html lang="en">
-      <body>
+      <head>
         <script
           data-name="BMC-Widget"
           data-cfasync="false"
@@ -42,9 +32,10 @@ export default function RootLayout({
           data-position="Right"
           data-x_margin="18"
           data-y_margin="18"
+          
         />
-        {children}
-      </body>
+      </head>
+      <body>{children}</body>
     </html>
   );
 }
