@@ -1,5 +1,4 @@
 ---
-id: "collection-products"
 title: |
   How do you loop through products in a collection? 🔄
 

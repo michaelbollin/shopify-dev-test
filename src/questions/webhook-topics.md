@@ -1,5 +1,4 @@
 ---
-id: "webhook-topics"
 title: |
   Which webhook topic should you subscribe to for tracking when a customer updates their information? 👤
 

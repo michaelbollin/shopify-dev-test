@@ -1,5 +1,4 @@
 ---
-id: "liquid-default-filter"
 title: |
   What will this Liquid code output? 🤔
   ```liquid

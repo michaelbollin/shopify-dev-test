@@ -1,5 +1,4 @@
 ---
-id: "customer-login-simple"
 title: |
   How to check if a customer is logged in? 👤
 

@@ -1,5 +1,4 @@
 ---
-id: "product-fetch"
 title: |
   What is the correct endpoint to fetch a single product with Ajax? 🛍️
 

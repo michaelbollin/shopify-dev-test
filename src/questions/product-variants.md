@@ -1,5 +1,4 @@
 ---
-id: "product-variants"
 title: |
   Which statement about Shopify product variants is correct? 🏷️
 

@@ -1,5 +1,4 @@
 ---
-id: "liquid-where-filter"
 title: |
   What's wrong with this Liquid code? ❌
   ```liquid

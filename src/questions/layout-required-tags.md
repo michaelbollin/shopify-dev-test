@@ -1,5 +1,4 @@
 ---
-id: "layout-required-tags"
 title: |
   Which Liquid tags are required in a valid Shopify layout file? 📄
 

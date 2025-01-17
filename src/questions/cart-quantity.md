@@ -1,5 +1,4 @@
 ---
-id: "cart-quantity"
 title: |
   How do you display the current cart item count? 🛒
 

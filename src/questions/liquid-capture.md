@@ -1,5 +1,4 @@
 ---
-id: "shopify-liquid-capture"
 title: |
   What's the output of this Liquid code? 🔄
 

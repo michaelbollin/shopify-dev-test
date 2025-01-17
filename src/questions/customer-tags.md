@@ -1,5 +1,4 @@
 ---
-id: "customer-tags"
 title: |
   What will this Liquid code output?
   ```liquid

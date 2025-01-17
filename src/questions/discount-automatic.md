@@ -1,5 +1,4 @@
 ---
-id: "discount-automatic"
 title: |
   How are multiple percentage-based order discounts calculated in Shopify? 🏷️
 

@@ -1,5 +1,4 @@
 ---
-id: "shopify-payments-tech"
 title: |
   What payment processing technology powers Shopify Payments? 💳
 

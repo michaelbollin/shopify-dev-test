@@ -1,5 +1,4 @@
 ---
-id: "metafields-definition"
 title: |
   Where should metafields be defined for theme access? 📝
 

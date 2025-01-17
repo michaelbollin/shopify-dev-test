@@ -1,5 +1,4 @@
 ---
-id: "liquid-stylesheet-tag"
 title: |
   Where can the {% stylesheet %} tag be used in Shopify themes? 🎨
 

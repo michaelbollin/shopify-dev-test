@@ -1,5 +1,4 @@
 ---
-id: "metaobject-field-types"
 title: |
   Which of these field types is NOT supported in metaobjects? 🚫
 

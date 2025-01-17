@@ -1,5 +1,4 @@
 ---
-id: "page-type-simple"
 title: |
   How to check what type of page you're on (product, collection, etc.)? 📄
 

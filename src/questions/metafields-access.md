@@ -1,5 +1,4 @@
 ---
-id: "metafields-access"
 title: |
   How to access product metafields in a theme? 🔍
 

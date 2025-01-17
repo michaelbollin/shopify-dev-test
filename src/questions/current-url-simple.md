@@ -1,5 +1,4 @@
 ---
-id: "current-url-simple"
 title: |
   How to get the current page path? 🔗
 

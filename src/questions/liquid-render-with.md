@@ -1,5 +1,4 @@
 ---
-id: "liquid-render-with"
 title: |
   What happens when using: {% render 'product-card' with product as product_item %}
 

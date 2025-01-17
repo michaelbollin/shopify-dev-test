@@ -1,5 +1,4 @@
 ---
-id: "product-variants-simple"
 title: |
   How to access all variants of a product? 🔄
 

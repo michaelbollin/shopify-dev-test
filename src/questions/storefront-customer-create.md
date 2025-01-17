@@ -1,5 +1,4 @@
 ---
-id: "storefront-customer-create"
 title: |
   Can you create new customers using the Storefront API? 🛍️
 

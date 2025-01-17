@@ -1,5 +1,4 @@
 ---
-id: "product-available-simple"
 title: |
   How to check if a product is available for purchase? ✅
 

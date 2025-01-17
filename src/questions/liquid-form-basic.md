@@ -1,5 +1,4 @@
 ---
-id: "liquid-form-basic"
 title: |
   Which code correctly creates a contact form in Shopify? 📝
 

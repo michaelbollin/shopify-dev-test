@@ -1,5 +1,4 @@
 ---
-id: "shopify-cart-attributes"
 title: |
   What is wrong with that code? 🛍️
 
@@ -47,6 +46,6 @@ Key points:
 - Double underscore prefix (__) is valid and makes attributes private
 - The code follows all Shopify Cart API best practices
 
-Reference: 
+Reference:
 - [Cart Attributes in Liquid](https://shopify.dev/docs/api/liquid/objects/cart#cart-attributes)
 - [Cart API](https://shopify.dev/api/ajax/reference/cart) 

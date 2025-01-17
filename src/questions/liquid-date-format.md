@@ -1,5 +1,4 @@
 ---
-id: "liquid-date-format"
 title: |
   How do you format a date in Liquid to show as "January 10, 2024"? 📅
 

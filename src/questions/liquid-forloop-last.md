@@ -1,5 +1,4 @@
 ---
-id: "liquid-forloop-last"
 title: |
   What will this Liquid code output? 🔄
   ```liquid

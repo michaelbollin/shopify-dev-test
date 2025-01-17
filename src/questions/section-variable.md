@@ -1,5 +1,4 @@
 ---
-id: "section-variable"
 title: |
   How do you access a section setting variable? ⚙️
 

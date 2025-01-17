@@ -1,5 +1,4 @@
 ---
-id: "page-body-class"
 title: |
   We are on the homepage. What class will the body tag have when using `<body class="page-{{ page.handle }}">`? 🏷️
 

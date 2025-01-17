@@ -1,5 +1,4 @@
 ---
-id: "shopify-pos"
 title: |
   What is Shopify POS? 🏪
 

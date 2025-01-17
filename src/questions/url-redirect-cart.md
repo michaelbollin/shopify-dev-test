@@ -1,5 +1,4 @@
 ---
-id: "url-redirect-cart"
 title: "Can you redirect /cart to /bag in Shopify without Javascript?"
 
 answers:

@@ -1,5 +1,4 @@
 ---
-id: "webhook-visibility"
 title: |
   You receive webhooks from a Shopify store but cannot see any webhooks in the webhook list in the dashboard. What could be the reason? 🔔
 

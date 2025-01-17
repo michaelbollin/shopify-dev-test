@@ -1,5 +1,4 @@
 ---
-id: "discount-code-liquid"
 title: |
   What variable you can use to check if a discount code is applied to cart? 💰
 

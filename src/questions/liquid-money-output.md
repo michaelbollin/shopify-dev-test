@@ -1,5 +1,4 @@
 ---
-id: "liquid-money-output"
 title: |
   What will this Liquid code output? 💰
   ```liquid

@@ -1,5 +1,4 @@
 ---
-id: "shopify-webhook-hmac"
 title: |
   How can you verify a webhook is genuinely from Shopify? 🔒
 

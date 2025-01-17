@@ -1,5 +1,4 @@
 ---
-id: "shopify-global-objects"
 title: |
   Why doesn't this code work on the cart page? 🛒
 

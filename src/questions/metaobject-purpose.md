@@ -1,5 +1,4 @@
 ---
-id: "metaobject-purpose"
 title: |
   What is the primary purpose of metaobjects in Shopify compared to metafields? 🤔
 

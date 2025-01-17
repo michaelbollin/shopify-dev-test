@@ -1,5 +1,4 @@
 ---
-id: "shopify-flow-plans"
 title: |
   What's true about Shopify Flow availability across different plans? 🔄
 

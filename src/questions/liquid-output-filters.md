@@ -1,5 +1,4 @@
 ---
-id: "liquid-output-filters"
 title: |
   What's the correct way to apply multiple filters in Liquid output tags? 🔗
 

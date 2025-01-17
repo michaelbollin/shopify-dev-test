@@ -1,5 +1,4 @@
 ---
-id: "locale-file-naming"
 title: |
   What is the correct file name for a French-Canadian locale file in Shopify? 🌐
 

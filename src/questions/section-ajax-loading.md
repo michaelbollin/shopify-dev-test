@@ -1,5 +1,4 @@
 ---
-id: "section-ajax-loading"
 title: |
   Can you load Shopify sections dynamically with AJAX? 🔄
 

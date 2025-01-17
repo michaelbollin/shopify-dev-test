@@ -1,5 +1,4 @@
 ---
-id: "cli-theme-dev"
 title: |
   When using `shopify theme dev`, which theme are you working on? 🛠️
 

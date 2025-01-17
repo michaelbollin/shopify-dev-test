@@ -1,5 +1,4 @@
 ---
-id: "discount-validation"
 title: |
   How to validate if a discount code exists before checkout? 🎫
 

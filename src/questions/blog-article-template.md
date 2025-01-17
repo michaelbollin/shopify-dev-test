@@ -1,5 +1,4 @@
 ---
-id: "blog-article-template"
 title: |
   Which template file is responsible for displaying a single blog article in Shopify? 📝
 

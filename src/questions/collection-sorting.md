@@ -1,5 +1,4 @@
 ---
-id: "collection-sorting"
 title: |
   What will this Liquid code output?
   ```liquid

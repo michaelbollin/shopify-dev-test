@@ -1,5 +1,4 @@
 ---
-id: "liquid-handles"
 title: |
   What is the correct format for a Liquid handle? 🏷️
 

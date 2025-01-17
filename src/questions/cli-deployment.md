@@ -1,5 +1,4 @@
 ---
-id: "shopify-cli-deployment"
 title: |
   What is the default port for shopify theme dev? 🔌
 

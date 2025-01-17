@@ -1,5 +1,4 @@
 ---
-id: "theme-github-editor"
 title: |
   When you have GitHub integration enabled and make changes in the theme editor:
 

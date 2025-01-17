@@ -1,5 +1,4 @@
 ---
-id: "product-metafields"
 title: |
   What is the maximum number of metafield definitions allowed per resource type in Shopify? 📝
 

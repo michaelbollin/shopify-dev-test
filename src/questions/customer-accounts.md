@@ -1,5 +1,4 @@
 ---
-id: "customer-accounts"
 title: |
   As of 2024, is login to your store as a customer possible with email/password? 🔑
 

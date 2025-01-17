@@ -1,5 +1,4 @@
 ---
-id: "api-storefront-features"
 title: |
   Which feature is NOT available in the Storefront API but IS available in the REST Admin API? 🔒
 

@@ -1,5 +1,4 @@
 ---
-id: "section-javascript-behavior"
 title: |
   What happens to this section code when the page loads? 🔄
 

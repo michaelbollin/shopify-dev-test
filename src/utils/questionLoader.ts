@@ -3,7 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 
 export type QuestionFrontmatter = {
-  id: string;
+  id?: string;
   title: string;
   answers: {
     id: string;
@@ -12,7 +12,14 @@ export type QuestionFrontmatter = {
   correctAnswer: string;
 };
 
-export type Question = QuestionFrontmatter & {
+export type Question = {
+  id: string;
+  title: string;
+  answers: {
+    id: string;
+    text: string;
+  }[];
+  correctAnswer: string;
   content: string;
 };
 
@@ -26,9 +33,13 @@ export function loadQuestions(): Question[] {
       const filePath = path.join(questionsDirectory, filename);
       const fileContents = fs.readFileSync(filePath, 'utf8');
       const { data, content } = matter(fileContents);
+      const frontmatter = data as QuestionFrontmatter;
+      
+      const id = frontmatter.id || filename.replace(/\.md$/, '');
       
       return {
-        ...(data as QuestionFrontmatter),
+        ...frontmatter,
+        id,
         content: content.trim(),
       };
     });

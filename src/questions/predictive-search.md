@@ -1,5 +1,4 @@
 ---
-id: "predictive-search"
 title: |
   When using predictive search, which parameters are required? 🔍
 

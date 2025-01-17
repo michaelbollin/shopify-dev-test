@@ -1,5 +1,4 @@
 ---
-id: "cart-count-behavior"
 title: |
   What does `cart.item_count` return for this cart? 🛒
 

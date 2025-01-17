@@ -1,5 +1,4 @@
 ---
-id: "liquid-stylesheet-syntax"
 title: |
   Which code sample correctly uses the stylesheet tag? 🎯
 

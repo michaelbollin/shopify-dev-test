@@ -1,5 +1,4 @@
 ---
-id: "liquid-sections-group"
 title: |
   What does this Liquid code do? {% sections 'header-group' %} 🔄
 

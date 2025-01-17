@@ -1,5 +1,4 @@
 ---
-id: "liquid-math"
 title: |
   How do you round a number to the nearest integer in Liquid? 🔢
 

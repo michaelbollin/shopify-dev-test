@@ -1,5 +1,4 @@
 ---
-id: "liquid-operators"
 title: |
   Which Liquid operator is used to check for the presence of a substring inside a string or array? 🔍
 

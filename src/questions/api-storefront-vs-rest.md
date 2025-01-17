@@ -1,5 +1,4 @@
 ---
-id: "api-storefront-vs-rest"
 title: |
   What type of API is Storefront API? 🔄
 

@@ -1,5 +1,4 @@
 ---
-id: "customer-has-account"
 title: |
   Can a customer exist without having an account? 🤔
 

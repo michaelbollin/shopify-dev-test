@@ -1,5 +1,4 @@
 ---
-id: "shopify-core-language"
 title: |
   What is the primary programming language that Shopify's core platform is built with? 💎
 

@@ -1,5 +1,4 @@
 ---
-id: "shopify-schema-blocks"
 title: |
   Can you add this section to a page via the visual theme editor? 🤔
 
@@ -59,3 +58,6 @@ Without presets, this would only work as a static section that's directly includ
 Note: The section is also missing template markup which would prevent the blocks from rendering, but that's not relevant to the specific question of whether it can be added via the editor.
 
 Reference: [Section Blocks](https://shopify.dev/themes/architecture/sections/section-blocks) 
+```
+
+</rewritten_file>

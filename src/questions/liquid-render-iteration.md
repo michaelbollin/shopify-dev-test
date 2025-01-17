@@ -1,5 +1,4 @@
 ---
-id: "liquid-render-iteration"
 title: |
   Is this code valid? {% render 'filename' for array as item %}
 

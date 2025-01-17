@@ -1,5 +1,4 @@
 ---
-id: "customer-accounts-custom"
 title: |
   Can you create a custom page in Shopify-hosted Customer Accounts? 🔐
 

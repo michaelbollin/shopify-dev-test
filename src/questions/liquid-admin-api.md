@@ -1,5 +1,4 @@
 ---
-id: "liquid-admin-api"
 title: |
   Can you call Shopify REST Admin API directly from template Javascript? 🔒
 

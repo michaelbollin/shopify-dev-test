@@ -1,5 +1,4 @@
 ---
-id: "product-price-access"
 title: |
   How do you display a formatted product's price in Liquid? 🏷️
 

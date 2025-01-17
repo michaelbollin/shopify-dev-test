@@ -1,52 +1,51 @@
 import { create } from 'zustand';
-
-interface Question {
-  id: string;
-  title: string;
-  content: string;
-  answers: Answer[];
-  correctAnswer: string;
-  previousId: string | null;
-  nextId: string | null;
-  index: number;
-}
-
-interface Answer {
-  id: string;
-  text: string;
-}
+import { Question } from '@/types/quiz';
+import { questionOrder } from '@/config/questionOrder';
 
 interface QuizStore {
-  userAnswers: Record<string, string>;
-  correctAnswers: Record<string, boolean>;
   currentQuestion: Question | null;
+  userAnswers: Record<string, string>;
+  firstQuestionId: string | null;
+  questionsOrder: string[];
   setCurrentQuestion: (question: Question) => void;
   submitAnswer: (questionId: string, answerId: string) => void;
   isAnswerCorrect: (questionId: string, answerId: string) => boolean;
   clearAnswers: () => void;
-  firstQuestionId: string | null;
   setFirstQuestionId: (id: string) => void;
+  setQuestionsOrder: (order: string[]) => void;
+  getNextQuestionId: (currentId: string) => string | null;
+  getPreviousQuestionId: (currentId: string) => string | null;
 }
 
 export const useQuizStore = create<QuizStore>((set, get) => ({
-  userAnswers: {},
-  correctAnswers: {},
   currentQuestion: null,
+  userAnswers: {},
   firstQuestionId: null,
-  setCurrentQuestion: (question) => set({ currentQuestion: question }),
-  setFirstQuestionId: (id) => set({ firstQuestionId: id }),
-  submitAnswer: (questionId, answerId) => {
-    const question = get().currentQuestion;
-    const isCorrect = question?.correctAnswer === answerId;
-    
+  questionsOrder: questionOrder,
+  setCurrentQuestion: (question) => {
+    set({ currentQuestion: question });
+  },
+  submitAnswer: (questionId, answerId) => 
     set((state) => ({
-      userAnswers: { ...state.userAnswers, [questionId]: answerId },
-      correctAnswers: { ...state.correctAnswers, [questionId]: isCorrect }
-    }));
-  },
+      userAnswers: { ...state.userAnswers, [questionId]: answerId }
+    })),
   isAnswerCorrect: (questionId, answerId) => {
-    const { correctAnswers } = get();
-    return correctAnswers[questionId] ?? false;
+    const { currentQuestion } = get();
+    return currentQuestion?.id === questionId && currentQuestion?.correctAnswer === answerId;
   },
-  clearAnswers: () => set({ userAnswers: {}, correctAnswers: {} })
+  clearAnswers: () => set({ userAnswers: {} }),
+  setFirstQuestionId: (id) => set({ firstQuestionId: id }),
+  setQuestionsOrder: (order) => set({ questionsOrder: order }),
+  getNextQuestionId: (currentId) => {
+    const { questionsOrder } = get();
+    const currentIndex = questionsOrder.findIndex(q => q === currentId);
+    if (currentIndex === -1 || currentIndex === questionsOrder.length - 1) return null;
+    return questionsOrder[currentIndex + 1];
+  },
+  getPreviousQuestionId: (currentId) => {
+    const { questionsOrder } = get();
+    const currentIndex = questionsOrder.findIndex(q => q === currentId);
+    if (currentIndex <= 0) return null;
+    return questionsOrder[currentIndex - 1];
+  }
 })); 

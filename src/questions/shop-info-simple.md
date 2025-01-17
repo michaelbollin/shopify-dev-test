@@ -1,5 +1,4 @@
 ---
-id: "shop-info-simple"
 title: |
   How to access the store name and currency? 🏪
 

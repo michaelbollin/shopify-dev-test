@@ -1,5 +1,4 @@
 ---
-id: "sections-vs-snippets"
 title: |
   What are the key differences between sections and snippets in Shopify themes? 🧩
 

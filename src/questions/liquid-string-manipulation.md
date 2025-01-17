@@ -1,5 +1,4 @@
 ---
-id: "liquid-string-manipulation"
 title: |
   Which Liquid filter removes all HTML tags from a string? 🧹
 

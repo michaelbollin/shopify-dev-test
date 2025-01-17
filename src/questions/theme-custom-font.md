@@ -1,5 +1,4 @@
 ---
-id: "theme-custom-font"
 title: |
   Where should you upload custom font files in a Shopify theme? 🔤
 

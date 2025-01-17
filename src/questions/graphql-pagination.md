@@ -1,5 +1,4 @@
 ---
-id: "shopify-graphql-pagination"
 title: |
   What will this GraphQL query return? 🤔
 

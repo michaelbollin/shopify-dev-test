@@ -1,5 +1,4 @@
 ---
-id: "liquid-scope-output"
 title: |
   What will this Liquid code output? 🤔
   ```liquid
@@ -42,4 +41,4 @@ Common misconceptions:
 - Thinking loop creates new scope
 - Expecting original array to be preserved
 - Thinking reassignment isn't allowed
-- Expecting concatenation of arrays 
+- Expecting concatenation of arrays

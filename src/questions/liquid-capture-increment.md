@@ -1,23 +1,27 @@
 ---
-title: Understanding Liquid increment and capture interaction
-description: What is the output of the following Liquid code?
+title: |
+  What is the output of the following Liquid code? 🔄
+
+  ```liquid
+  {% increment counter %}
+  {% capture counter %}{% increment counter %}{% endcapture %}
+  {% increment counter %}
+  {{ counter }}
+  ```
+answers:
+  - id: "a"
+    text: "0 1 2"
+  - id: "b"
+    text: "0 1 1"
+  - id: "c"
+    text: "0 2 1"
+  - id: "d"
+    text: "1 2 1"
+correctAnswer: "c"
 ---
 
-```liquid
-{% increment counter %}
-{% capture counter %}{% increment counter %}{% endcapture %}
-{% increment counter %}
-{{ counter }}
-```
+### Explanation
 
-a) 0 1 2
-b) 0 1 1
-c) 0 2 1
-d) 1 2 1
-
-Answer: c) 0 2 1
-
-Explanation:
 This code demonstrates the interaction between Liquid's `increment` and `capture` tags:
 
 1. First `{% increment counter %}` outputs 0 and increments to 1

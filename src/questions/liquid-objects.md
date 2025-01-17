@@ -1,5 +1,4 @@
 ---
-id: "shopify-liquid-objects"
 title: |
   When will this Liquid code output the variant price? 🛍️
 

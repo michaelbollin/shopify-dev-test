@@ -1,5 +1,4 @@
 ---
-id: "hydrogen-platform"
 title: |
   Shopify Hydrogen is a platform for building custom storefronts. What is it primarily based on? ⚛️
 

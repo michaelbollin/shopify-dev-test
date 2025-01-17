@@ -1,5 +1,4 @@
 ---
-id: "shopify-default-values"
 title: |
   What's wrong with this range setting? 🔢
 
@@ -41,3 +40,6 @@ Range settings must include min and max values:
 ```
 
 💡 Tip: Range inputs always require min and max values. The default value is already correct as a number! 
+```
+
+</rewritten_file>

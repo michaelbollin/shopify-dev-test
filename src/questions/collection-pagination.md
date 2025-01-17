@@ -1,5 +1,4 @@
 ---
-id: "collection-pagination"
 title: |
   What will this Liquid code output?
   ```liquid

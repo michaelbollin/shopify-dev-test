@@ -1,5 +1,4 @@
 ---
-id: "shopify-liquid-filters"
 title: |
   What's the output of this Liquid code? Assume we have products and are in a collection. 🔍
 

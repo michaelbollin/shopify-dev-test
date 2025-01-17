@@ -1,5 +1,4 @@
 ---
-id: "liquid-layout-none"
 title: |
   What is the effect of using {% layout none %} in a Liquid template? 🏗️
 

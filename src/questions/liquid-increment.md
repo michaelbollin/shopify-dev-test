@@ -1,5 +1,4 @@
 ---
-id: "shopify-liquid-increment"
 title: |
   What's wrong with this counter implementation? 🔢
 

@@ -1,5 +1,4 @@
 ---
-id: "metaobject-access"
 title: |
   Product has metaobject "Ingredients" that has `name`, `feature`, and `photo` fields. How to access the name? 🧪
 

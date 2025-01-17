@@ -1,5 +1,4 @@
 ---
-id: "liquid-array-filters"
 title: |
   Which Liquid filter is used to sort an array in ascending order? 🔄
 

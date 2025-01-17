@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { loadQuestions } from '@/utils/questionLoader';
+import { questionOrder } from '@/config/questionOrder';
 
 export async function GET(
   request: NextRequest,
@@ -7,20 +8,27 @@ export async function GET(
 ) {
   const questions = await loadQuestions();
   const resolvedParams = await Promise.resolve(params);
-  const currentIndex = questions.findIndex(q => q.id === resolvedParams.id);
   
-  if (currentIndex === -1) {
+  // Find question by ID
+  const question = questions.find(q => q.id === resolvedParams.id);
+  
+  if (!question) {
     return NextResponse.json({ error: 'Question not found' }, { status: 404 });
   }
 
-  const question = questions[currentIndex];
+  // Find index in the ordered array
+  const currentIndex = questionOrder.findIndex(q => q === question.id);
+  
+  // Determine previous and next based on position in array
+  const previousId = currentIndex > 0 ? questionOrder[currentIndex - 1] : null;
+  const nextId = currentIndex < questionOrder.length - 1 ? questionOrder[currentIndex + 1] : null;
   
   // Add navigation metadata
   return NextResponse.json({
     ...question,
     index: currentIndex,
-    previousId: currentIndex > 0 ? questions[currentIndex - 1].id : null,
-    nextId: currentIndex < questions.length - 1 ? questions[currentIndex + 1].id : null,
-    totalQuestions: questions.length
+    previousId,
+    nextId,
+    totalQuestions: questionOrder.length
   });
 } 

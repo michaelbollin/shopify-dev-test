@@ -1,5 +1,4 @@
 ---
-id: "metafields-types"
 title: |
   How should rich text metafields be rendered in Liquid to return HTML? 📝
 

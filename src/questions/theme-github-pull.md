@@ -1,5 +1,4 @@
 ---
-id: "theme-github-pull"
 title: |
   How can you update Shopify theme's code?
 

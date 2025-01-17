@@ -1,5 +1,4 @@
 ---
-id: "shopify-flow-automation"
 title: |
   How can you automatically tag customers as VIP when they spend over $500? 🏷️
 

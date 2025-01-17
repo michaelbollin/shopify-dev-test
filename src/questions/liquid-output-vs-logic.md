@@ -1,5 +1,4 @@
 ---
-id: "liquid-output-vs-logic"
 title: |
   Which Liquid syntax would you use to create a money formatted 'price' variable? 💰
 

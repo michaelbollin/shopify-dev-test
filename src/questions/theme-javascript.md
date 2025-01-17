@@ -1,5 +1,4 @@
 ---
-id: "theme-javascript"
 title: |
   How do you pass Liquid variables to JavaScript in a theme? 💭
 answers:

@@ -1,5 +1,4 @@
 ---
-id: "cart-line-items"
 title: |
   What will this Liquid code output?
   ```liquid

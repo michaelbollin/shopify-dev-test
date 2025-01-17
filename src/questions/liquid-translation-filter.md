@@ -1,5 +1,4 @@
 ---
-id: "liquid-translation-filter"
 title: |
   What does the `t` filter do in this Liquid code? 🔤
   ```liquid

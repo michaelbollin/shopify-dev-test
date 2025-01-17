@@ -1,5 +1,4 @@
 ---
-id: "shopify-section-schema"
 title: |
   Which schema setting will create a color picker in the theme editor? 🎨
 

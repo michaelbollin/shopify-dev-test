@@ -1,5 +1,4 @@
 ---
-id: "fetch-recommended-products"
 title: |
   Which endpoint should you use to fetch recommended products? 🌐
 

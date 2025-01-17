@@ -1,5 +1,4 @@
 ---
-id: "webhook-retry-mechanism"
 title: |
   What is correct about Shopify's webhook retry mechanism? 🔄
 

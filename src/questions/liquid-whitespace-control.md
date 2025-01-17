@@ -1,5 +1,4 @@
 ---
-id: "liquid-whitespace-control"
 title: |
   What will be the HTML output of this Liquid code? ⬇️
   ```liquid
@@ -18,7 +17,7 @@ answers:
   - id: "c"
     text: "<div>  In stock!  </div>"
   - id: "d"
-    text: "<div>\n    In stock!\n  </div>"
+    text: "<div>\n    In stock!\n</div>"
 correctAnswer: "b"
 ---
 
