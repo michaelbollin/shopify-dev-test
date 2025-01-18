@@ -4,13 +4,13 @@ import { questionOrder } from '@/config/questionOrder';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> | { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const questions = await loadQuestions();
-  const resolvedParams = await Promise.resolve(params);
+  const questions = loadQuestions();
+  const { id } = await params;
   
   // Find question by ID
-  const question = questions.find(q => q.id === resolvedParams.id);
+  const question = questions.find(q => q.id === id);
   
   if (!question) {
     return NextResponse.json({ error: 'Question not found' }, { status: 404 });

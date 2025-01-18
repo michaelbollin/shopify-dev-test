@@ -1,7 +1,6 @@
 'use client';
 
 import { useQuizStore } from '@/store/quizStore';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 export function QuizFinish() {
@@ -26,7 +25,7 @@ export function QuizFinish() {
         <div className="bg-white rounded-xl shadow-lg p-8 text-center">
           <h1 className="text-3xl font-bold mb-6">🎉 Congratulations!</h1>
           <p className="text-xl mb-8">
-            You've completed the Shopify Development Quiz
+            You&apos;ve completed the Shopify Development Quiz
           </p>
           
           <div className="space-y-4 mb-8">

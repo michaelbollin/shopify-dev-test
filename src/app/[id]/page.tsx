@@ -2,10 +2,9 @@ import { loadQuestions } from '@/utils/questionLoader';
 import { QuizPage } from '@/components/QuizPage';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import { questionOrder } from '@/config/questionOrder';
 
 type Props = {
-  params: Promise<{ id: string }> | { id: string }
+  params: Promise<{ id: string }> | undefined
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -13,7 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const questions = await loadQuestions();
   
   // Find question by ID
-  const question = questions.find(q => q.id === resolvedParams.id);
+  const question = questions.find(q => q.id === resolvedParams?.id);
   
   if (!question) return { title: 'Question not found' };
 
@@ -40,9 +39,9 @@ export default async function QuestionPage({ params }: Props) {
   const resolvedParams = await Promise.resolve(params);
   
   // Find question by ID
-  const question = questions.find(q => q.id === resolvedParams.id);
+  const question = questions.find(q => q.id === resolvedParams?.id);
 
-  if (!resolvedParams.id || !question) {
+  if (!resolvedParams?.id || !question) {
     notFound();
   }
 

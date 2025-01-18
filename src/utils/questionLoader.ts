@@ -15,6 +15,10 @@ export type QuestionFrontmatter = {
 export type Question = {
   id: string;
   title: string;
+  seo?: {
+    title: string;
+    description: string;
+  };
   answers: {
     id: string;
     text: string;
