@@ -62,9 +62,7 @@ describe('QuizPage', () => {
     
     // Reset store state
     const setCurrentQuestion = jest.fn((question) => {
-      act(() => {
         useQuizStore.setState({ currentQuestion: question });
-      });
     });
 
     useQuizStore.setState({
