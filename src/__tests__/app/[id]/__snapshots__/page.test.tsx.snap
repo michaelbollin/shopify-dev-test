@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Question Page renders the page for valid question id 1`] = `
+<div>
+  <div
+    class="hidden"
+  >
+    <h1>
+      Test Question
+    </h1>
+    <div>
+      # Test content
+    </div>
+    <h2>
+      Answer Options:
+    </h2>
+    <ul>
+      <li>
+        Answer A
+      </li>
+      <li>
+        Answer B
+      </li>
+    </ul>
+  </div>
+  <div
+    data-testid="quiz-page"
+  >
+    Mock Quiz Page: 
+    test-question
+  </div>
+</div>
+`;

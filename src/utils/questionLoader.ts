@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-
+import { Question } from '@/types/quiz';
 export type QuestionFrontmatter = {
   id?: string;
   title: string;
@@ -10,21 +10,6 @@ export type QuestionFrontmatter = {
     text: string;
   }[];
   correctAnswer: string;
-};
-
-export type Question = {
-  id: string;
-  title: string;
-  seo?: {
-    title: string;
-    description: string;
-  };
-  answers: {
-    id: string;
-    text: string;
-  }[];
-  correctAnswer: string;
-  content: string;
 };
 
 export function loadQuestions(): Question[] {

@@ -1,0 +1,5 @@
+{
+  "buildCommand": "yarn test && yarn build",
+  "installCommand": "yarn install",
+  "framework": "nextjs"
+} 
