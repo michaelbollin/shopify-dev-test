@@ -1,45 +1,56 @@
-import type { Metadata } from "next";
-import Script from "next/script";
-import { Footer } from "@/components/Footer";
-import "./globals.css";
+import type { Metadata } from 'next';
+import Script from 'next/script';
+import { Footer } from '@/components/Footer';
+import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://liquidquestions.com'),
   title: {
     default: 'Shopify Development Quiz',
-    template: '%s | Shopify Development Quiz'
+    template: '%s | Shopify Development Quiz',
   },
-  description: 'Test your knowledge of Shopify development with our comprehensive quiz. Learn about themes, APIs, webhooks, and more.',
-  keywords: ['Shopify', 'development', 'quiz', 'themes', 'API', 'webhooks', 'learning'],
+  description:
+    'Test your knowledge of Shopify development with our comprehensive quiz. Learn about themes, APIs, webhooks, and more.',
+  keywords: [
+    'Shopify',
+    'development',
+    'quiz',
+    'themes',
+    'API',
+    'webhooks',
+    'learning',
+  ],
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://liquidquestions.com',
     siteName: 'Shopify Development Quiz',
     title: 'Shopify Development Quiz',
-    description: 'Test your knowledge of Shopify development with our comprehensive quiz.',
+    description:
+      'Test your knowledge of Shopify development with our comprehensive quiz.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Shopify Development Quiz'
-      }
-    ]
+        alt: 'Shopify Development Quiz',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Shopify Development Quiz',
-    description: 'Test your knowledge of Shopify development with our comprehensive quiz.',
-    images: ['/og-image.jpg']
+    description:
+      'Test your knowledge of Shopify development with our comprehensive quiz.',
+    images: ['/og-image.jpg'],
   },
   icons: [
-    { 
+    {
       rel: 'icon',
       url: '/favicon.svg',
-      type: 'image/svg+xml'
-    }
-  ]
+      type: 'image/svg+xml',
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -50,7 +61,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Script
+        <script
           data-name="BMC-Widget"
           data-cfasync="false"
           src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
@@ -61,8 +72,7 @@ export default function RootLayout({
           data-position="Right"
           data-x_margin="18"
           data-y_margin="18"
-          strategy="lazyOnload"
-        />
+        ></script>
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-NVBLQ2NS91"
@@ -78,9 +88,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="flex flex-col min-h-screen">
-        <div className="flex-grow">
-          {children}
-        </div>
+        <div className="flex-grow">{children}</div>
         <Footer />
       </body>
     </html>
