@@ -63,6 +63,19 @@ export default function RootLayout({
           data-y_margin="18"
           strategy="lazyOnload"
         />
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-NVBLQ2NS91"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-NVBLQ2NS91');
+          `}
+        </Script>
       </head>
       <body className="flex flex-col min-h-screen">
         <div className="flex-grow">
