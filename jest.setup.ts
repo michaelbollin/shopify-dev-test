@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 // Filter out the act() warning
 const originalError = console.error;
 console.error = (...args) => {
-  if (args[0]?.includes?.('Warning: `ReactDOMTestUtils.act` is deprecated')) {
+  if (args[0]?.includes?.('ReactDOMTestUtils.act')) {
     return;
   }
   originalError.call(console, ...args);
