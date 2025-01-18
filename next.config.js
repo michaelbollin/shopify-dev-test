@@ -1,8 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    unoptimized: true,  // For static images in public folder
+  experimental: {
+    esmExternals: true
   },
+  transpilePackages: ['next'],
+  webpack: (config) => {
+    config.resolve.extensionAlias = {
+      '.js': ['.js', '.ts', '.tsx']
+    }
+    return config
+  },
+  sassOptions: {
+    includePaths: ['./node_modules']
+  }
 }
 
 module.exports = nextConfig
