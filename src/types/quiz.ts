@@ -14,9 +14,10 @@ export interface Question {
   content: string;
   answers: Answer[];
   correctAnswer: string;
-  previousId: string | null;
-  nextId: string | null;
-  index: number;
-  totalQuestions: number;
+  previousId?: string | null;
+  nextId?: string | null;
+  index?: number;
+  totalQuestions?: number;
   seo?: SEO;
 } 
+
