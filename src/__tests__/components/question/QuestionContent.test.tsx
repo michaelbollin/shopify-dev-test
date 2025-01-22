@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { QuestionContent } from '@/components/QuestionContent';
+import { Question } from '@/components/question/Question';
 
 const mockQuestion = {
   id: 'test-question',
@@ -27,7 +27,7 @@ describe('QuestionContent', () => {
 
   it('renders the question and answers', () => {
     render(
-      <QuestionContent
+      <Question
         currentQuestion={mockQuestion}
         userAnswers={{}}
         isAnswerCorrect={mockIsAnswerCorrect}
@@ -43,7 +43,7 @@ describe('QuestionContent', () => {
   it('handles answer submission', async () => {
     const user = userEvent.setup();
     render(
-      <QuestionContent
+      <Question
         currentQuestion={mockQuestion}
         userAnswers={{}}
         isAnswerCorrect={mockIsAnswerCorrect}
@@ -61,7 +61,7 @@ describe('QuestionContent', () => {
     mockIsAnswerCorrect.mockReturnValue(true);
     
     render(
-      <QuestionContent
+      <Question
         currentQuestion={mockQuestion}
         userAnswers={{ 'test-question': 'a' }}
         isAnswerCorrect={mockIsAnswerCorrect}
@@ -69,7 +69,7 @@ describe('QuestionContent', () => {
       />
     );
 
-    expect(screen.getByText('✓ Correct!')).toBeInTheDocument();
+    expect(screen.getByText('Correct!')).toBeInTheDocument();
     expect(screen.getByText('Test explanation content')).toBeInTheDocument();
   });
 
@@ -77,7 +77,7 @@ describe('QuestionContent', () => {
     mockIsAnswerCorrect.mockReturnValue(false);
     
     render(
-      <QuestionContent
+      <Question
         currentQuestion={mockQuestion}
         userAnswers={{ 'test-question': 'b' }}
         isAnswerCorrect={mockIsAnswerCorrect}
@@ -85,13 +85,13 @@ describe('QuestionContent', () => {
       />
     );
 
-    expect(screen.getByText('✗ Incorrect')).toBeInTheDocument();
+    expect(screen.getByText('Incorrect')).toBeInTheDocument();
     expect(screen.getByText('Test explanation content')).toBeInTheDocument();
   });
 
   it('disables answers after selection', () => {
     render(
-      <QuestionContent
+      <Question
         currentQuestion={mockQuestion}
         userAnswers={{ 'test-question': 'a' }}
         isAnswerCorrect={mockIsAnswerCorrect}

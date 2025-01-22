@@ -1,21 +1,15 @@
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Question } from '@/types/quiz';
+import type { QuestionContentProps } from '@/types/quiz';
 import { Answer } from './Answer';
+import { CheckIcon, CrossIcon } from '../icons/ResultIcon';
 
-type Props = {
-  currentQuestion: Question | null;
-  userAnswers: Record<string, string>;
-  isAnswerCorrect: (questionId: string, answerId: string) => boolean;
-  submitAnswer: (questionId: string, answerId: string) => void;
-};
-
-export function QuestionContent({ 
+export function Question({ 
   currentQuestion, 
   userAnswers, 
   isAnswerCorrect, 
   submitAnswer 
-}: Props) {
+}: QuestionContentProps) {
   if (!currentQuestion) return null;
 
   const hasAnswered = Boolean(userAnswers[currentQuestion.id]);
@@ -37,11 +31,6 @@ export function QuestionContent({
               key={answer.id}
               answer={answer}
               isSelected={userAnswers[currentQuestion.id] === answer.id}
-              isCorrect={
-                userAnswers[currentQuestion.id] === answer.id ?
-                isAnswerCorrect(currentQuestion.id, answer.id) :
-                null
-              }
               onClick={() => submitAnswer(currentQuestion.id, answer.id)}
               disabled={hasAnswered}
               correctAnswer={currentQuestion.correctAnswer}
@@ -55,8 +44,18 @@ export function QuestionContent({
               isCorrectAnswer ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'
             }`}
           >
-            <p className="font-medium mb-2">
-              {isCorrectAnswer ? '✓ Correct!' : '✗ Incorrect'}
+            <p className="font-medium mb-2 flex items-center gap-2">
+              {isCorrectAnswer ? (
+                <>
+                  <CheckIcon className="h-10 w-10" />
+                  Correct!
+                </>
+              ) : (
+                <>
+                  <CrossIcon className="h-10 w-10" />
+                  Incorrect
+                </>
+              )}
             </p>
             <div className="prose prose-sm dark:prose-invert max-w-none">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>

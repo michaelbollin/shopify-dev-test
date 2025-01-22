@@ -39,3 +39,11 @@ body {
   min-height: 100vh;
   overflow-y: auto;
 }
+
+body > #bmc-wbtn
+{
+  bottom: 88px !important;
+  @media (min-width: 1024px) {
+    bottom: 18px !important;
+  }
+}
