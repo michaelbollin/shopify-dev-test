@@ -37,7 +37,7 @@ export const questionOrder = [
   'shopify-liquid-layout-null',
 
   // Theme Development
-  'shopify-theme-assets-directory-structure',
+  'shopify-theme-assets-directory-structure-guide',
   'shopify-theme-custom-font-integration',
   'shopify-theme-javascript-implementation',
   'shopify-theme-github-online-editor',
@@ -111,7 +111,7 @@ export const questionOrder = [
   'shopify-webhook-event-topics-overview',
   'shopify-webhook-visibility-scope',
   'shopify-webhook-retry-delivery-mechanism',
-  'shopify-webhook-security-hmac-authentication',
+  'shopify-webhook-security-hmac-authentication-guide',
 
   // Shopify Features
   'shopify-point-of-sale-features',
