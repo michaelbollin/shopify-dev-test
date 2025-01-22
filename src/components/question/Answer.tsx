@@ -21,28 +21,20 @@ export function Answer({ answer, isSelected, onClick, disabled, correctAnswer }:
     return undefined;
   };
 
-  // Check if the text is a code block (starts with HTML-like content)
-  const isCodeBlock = answer.text.trim().startsWith('<');
 
   return (
     <button
       onClick={onClick}
       disabled={disabled}
       aria-label={getAriaLabel()}
-      className={getButtonStyle()}
+      className={`${getButtonStyle()} flex w-full `}
     >
       <span className="font-bold mr-2">{answer.id.toUpperCase()}.</span>
-      {isCodeBlock ? (
-        <div className="mockup-code bg-base-200 text-left min-w-full">
-          <pre data-prefix="$" className="px-4 py-2"><code>{answer.text}</code></pre>
-        </div>
-      ) : (
-        <div className={`prose ${isSelected ? 'text-current' : 'text-base-content'}`}>
+      <div className={`prose flex-1 text-left items-center max-w-[90%] ${isSelected ? 'text-current' : 'text-base-content'}`}>
           <ReactMarkdown remarkPlugins={[remarkGfm]}>
             {answer.text}
-          </ReactMarkdown>
-        </div>
-      )}
+        </ReactMarkdown>
+      </div>
     </button>
   );
 } 

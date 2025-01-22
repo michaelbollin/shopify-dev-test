@@ -5,28 +5,36 @@ title: |
 answers:
   - id: "a"
     text: |
+      ```html
       <form action="/contact" method="post">
         <input type="text" name="contact[email]">
         <button type="submit">Send</button>
       </form>
+      ```
   - id: "b"
     text: |
+      ```liquid
       {% form 'contact' %}
         <input type="text" name="contact[email]">
         <button type="submit">Send</button>
       {% endform %}
+      ```
   - id: "c"
     text: |
+      ```liquid
       {{ form 'contact' }}
         <input type="text" name="contact[email]">
         <button type="submit">Send</button>
       {{ endform }}
+      ```
   - id: "d"
     text: |
+      ```liquid
       {% contact_form %}
         <input type="text" name="contact[email]">
         <button type="submit">Send</button>
       {% endcontact_form %}
+      ```
 correctAnswer: "b"
 seo:
   title: "Shopify Liquid Contact Form - Correct Syntax tag"

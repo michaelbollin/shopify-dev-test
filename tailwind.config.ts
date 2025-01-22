@@ -46,7 +46,10 @@ const config: Config = {
             '@apply text-blue-600 underline hover:text-blue-800': {}
           },
           '.btn-answer': {
-            '@apply btn w-full justify-start normal-case [animation:none]': {}
+            '@apply h-auto btn w-full justify-start normal-case [animation:none]': {}
+          },
+          '.btn-answer pre': {
+            '@apply bg-[#EEEEEE] text-[#333333] overflow-x-auto mt-2 relative inline-block text-sm font-mono whitespace-pre w-full rounded-lg text-left p-3 max-w-full': {}
           },
           '.btn-answer-selected': {
             '@apply btn-primary opacity-50': {},
