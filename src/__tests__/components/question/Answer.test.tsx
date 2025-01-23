@@ -63,7 +63,7 @@ describe('Answer', () => {
     
     render(<Answer {...defaultProps} answer={codeAnswer} />);
     const preElement = screen.getByText('<div>Test Code</div>');
-    expect(preElement.tagName).toBe('PRE');
+    expect(preElement.tagName).toBe('DIV');
   });
 
   it('renders markdown content correctly', () => {

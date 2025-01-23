@@ -11,7 +11,7 @@ describe('Footer', () => {
     // Check for author link
     const authorLink = screen.getByText('Michael Bollin');
     expect(authorLink).toBeInTheDocument();
-    expect(authorLink).toHaveAttribute('href', 'https://michaelbollin.com');
+    expect(authorLink).toHaveAttribute('href', 'https://bollin.dev');
     expect(authorLink).toHaveAttribute('target', '_blank');
     expect(authorLink).toHaveAttribute('rel', 'noopener noreferrer');
     

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { QuizHeader } from '@/components/layout/Header';
+import { Header } from '@/components/layout/Header';
 
 const mockQuestion = {
   id: 'test-question',
@@ -27,7 +27,7 @@ describe('QuizHeader', () => {
   });
 
   it('renders all components correctly', () => {
-    render(<QuizHeader {...defaultProps} />);
+    render(<Header {...defaultProps} />);
     
     // Brand
     expect(screen.getByRole('link', { name: 'Shopify Free Test' })).toBeInTheDocument();
@@ -52,7 +52,7 @@ describe('QuizHeader', () => {
       .mockReturnValueOnce(false); // q2 wrong
 
     render(
-      <QuizHeader
+      <Header
         {...defaultProps}
         userAnswers={userAnswers}
         isAnswerCorrect={isAnswerCorrect}
@@ -71,7 +71,7 @@ describe('QuizHeader', () => {
     const user = userEvent.setup();
 
     render(
-      <QuizHeader
+      <Header
         {...defaultProps}
         handleReset={handleReset}
       />
@@ -84,7 +84,7 @@ describe('QuizHeader', () => {
   });
 
   it('shows mobile navigation on small screens', () => {
-    render(<QuizHeader {...defaultProps} />);
+    render(<Header {...defaultProps} />);
     
     const mobileNav = screen.getByTestId('mobile-navigation');
     expect(mobileNav).toHaveClass('fixed bottom-0 left-0 right-0 lg:hidden');
