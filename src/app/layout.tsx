@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { Footer } from '@/components/Footer';
+import { Footer } from '@/components/layout/Footer';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -87,7 +87,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className="flex flex-col min-h-screen">
+      <body className="flex flex-col min-h-screen pb-32 lg:pb-0">
         <div className="flex-grow">{children}</div>
         <Footer />
       </body>

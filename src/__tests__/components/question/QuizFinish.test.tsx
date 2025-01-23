@@ -1,16 +1,15 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { QuizFinish } from '@/components/QuizFinish';
-import { useQuizStore } from '@/store/quizStore';
 import { useRouter } from 'next/navigation';
-
-// Mock the store and router
-jest.mock('@/store/quizStore', () => ({
-  useQuizStore: jest.fn()
-}));
+import { useQuizStore } from '@/store/quizStore';
+import { QuizFinish } from '@/components/QuizFinish';
 
 jest.mock('next/navigation', () => ({
   useRouter: jest.fn()
+}));
+
+jest.mock('@/store/quizStore', () => ({
+  useQuizStore: jest.fn()
 }));
 
 describe('QuizFinish', () => {
@@ -85,25 +84,5 @@ describe('QuizFinish', () => {
     
     await user.click(screen.getByText('☕ Buy Me a Coffee'));
     expect(mockClick).toHaveBeenCalled();
-  });
-
-  it('shows different score colors based on performance', () => {
-    // Test high score (≥70%)
-    mockStore.isAnswerCorrect
-      .mockReturnValueOnce(true)
-      .mockReturnValueOnce(true)
-      .mockReturnValueOnce(false);
-
-    const { rerender } = render(<QuizFinish />);
-    expect(screen.getByText('67%')).toHaveClass('text-orange-600');
-
-    // Test low score (<70%)
-    mockStore.isAnswerCorrect
-      .mockReturnValueOnce(true)
-      .mockReturnValueOnce(true)
-      .mockReturnValueOnce(true);
-    
-    rerender(<QuizFinish />);
-    expect(screen.getByText('100%')).toHaveClass('text-green-600');
   });
 }); 

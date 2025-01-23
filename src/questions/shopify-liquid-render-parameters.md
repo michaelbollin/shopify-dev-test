@@ -1,6 +1,9 @@
 ---
 title: |
-  What happens when using: {% render 'product-card' with product as product_item %}
+  What happens when using:
+  ```liquid
+  {% render 'product-card' with product as product_item %}
+  ```
 
 answers:
   - id: "a"

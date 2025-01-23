@@ -5,27 +5,34 @@ title: |
 answers:
   - id: "a"
     text: |
+      ```liquid
       {% stylesheet %}
         .section-{{ section.id }} {
           background: {{ settings.bg_color }};
         }
       {% endstylesheet %}
+      ```
   - id: "b"
     text: |
+      ```liquid
       {% style %}
         .section-{{ section.id }} {
           background: {{ settings.bg_color }};
         }
       {% endstyle %}
+      ```
   - id: "c"
     text: |
+      ```liquid
       {% stylesheet %}
         .my-section {
           background: var(--bg-color);
         }
       {% endstylesheet %}
+      ```
   - id: "d"
     text: |
+      ```liquid
       {% stylesheet %}
         {% if section.settings.enabled %}
           .my-section {
@@ -37,6 +44,7 @@ answers:
           }
         {% endif %}
       {% endstylesheet %}
+      ```
 correctAnswer: "c"
 seo:
   title: "Shopify Liquid Stylesheet Tag - Dynamic Styles"

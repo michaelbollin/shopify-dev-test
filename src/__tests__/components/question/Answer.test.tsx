@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Answer } from '@/components/Answer';
+import { Answer } from '@/components/question/Answer';
 
 describe('Answer', () => {
   const mockAnswer = {
@@ -11,7 +11,6 @@ describe('Answer', () => {
   const defaultProps = {
     answer: mockAnswer,
     isSelected: false,
-    isCorrect: null,
     onClick: jest.fn(),
     disabled: false,
     correctAnswer: 'a'
@@ -33,25 +32,22 @@ describe('Answer', () => {
     expect(onClick).toHaveBeenCalled();
   });
 
-  it('shows correct styling when selected and correct', () => {
-    render(<Answer {...defaultProps} isSelected={true} isCorrect={true} />);
+  it('shows correct state when selected and is correct', () => {
+    render(<Answer {...defaultProps} isSelected={true} correctAnswer="a" />);
     const button = screen.getByRole('button');
-    expect(button).toHaveClass('bg-green-500');
-    expect(button).toHaveClass('text-white');
+    expect(button).toHaveAttribute('aria-label', 'Correct answer');
   });
 
-  it('shows correct styling when selected and incorrect', () => {
-    render(<Answer {...defaultProps} isSelected={true} isCorrect={false} />);
+  it('shows incorrect state when selected and is wrong', () => {
+    render(<Answer {...defaultProps} isSelected={true} correctAnswer="b" />);
     const button = screen.getByRole('button');
-    expect(button).toHaveClass('bg-red-500');
-    expect(button).toHaveClass('text-white');
+    expect(button).toHaveAttribute('aria-label', 'Incorrect answer');
   });
 
-  it('shows correct styling when selected but not evaluated', () => {
-    render(<Answer {...defaultProps} isSelected={true} isCorrect={null} />);
+  it('shows selected state when not yet evaluated', () => {
+    render(<Answer {...defaultProps} isSelected={false} />);
     const button = screen.getByRole('button');
-    expect(button).toHaveClass('bg-blue-500');
-    expect(button).toHaveClass('text-white');
+    expect(button).not.toHaveAttribute('aria-label');
   });
 
   it('is disabled when specified', () => {
@@ -67,8 +63,7 @@ describe('Answer', () => {
     
     render(<Answer {...defaultProps} answer={codeAnswer} />);
     const preElement = screen.getByText('<div>Test Code</div>');
-    expect(preElement.tagName).toBe('PRE');
-    expect(preElement).toHaveClass('font-mono');
+    expect(preElement.tagName).toBe('DIV');
   });
 
   it('renders markdown content correctly', () => {

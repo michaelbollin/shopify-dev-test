@@ -129,8 +129,8 @@ describe('QuizPage', () => {
     const answerButton = screen.getByRole('button', { name: 'A. Answer A' });
     await userEvent.click(answerButton);
 
-    expect(answerButton).toHaveClass('bg-green-500');
-    expect(answerButton).toHaveClass('text-white');
+    // Check that the button is now disabled and marked as answered
+    expect(answerButton).toHaveAttribute('aria-label', 'Correct answer');
     expect(answerButton).toBeDisabled();
   });
 

@@ -3,14 +3,11 @@
 import { useEffect } from 'react';
 import { useQuizStore } from '@/store/quizStore';
 import { useRouter } from 'next/navigation';
-import { QuizHeader } from './QuizHeader';
-import { QuestionContent } from './QuestionContent';
+import { Header } from './layout/Header';
+import { Question } from './question/Question';
+import type { QuizPageProps } from '@/types/quiz';
 
-type Props = {
-  initialQuestionId: string;
-};
-
-export function QuizPage({ initialQuestionId }: Props) {
+export function QuizPage({ initialQuestionId }: QuizPageProps) {
   const router = useRouter();
   const { 
     currentQuestion, 
@@ -48,7 +45,7 @@ export function QuizPage({ initialQuestionId }: Props) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <QuizHeader 
+      <Header 
         currentQuestion={currentQuestion}
         userAnswers={userAnswers}
         isAnswerCorrect={isAnswerCorrect}
@@ -57,7 +54,7 @@ export function QuizPage({ initialQuestionId }: Props) {
       
       <main className="py-8">
         <div className="max-w-2xl mx-auto px-4">
-          <QuestionContent
+          <Question
             currentQuestion={currentQuestion}
             userAnswers={userAnswers}
             isAnswerCorrect={isAnswerCorrect}

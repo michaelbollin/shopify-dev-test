@@ -13,8 +13,9 @@
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
-    "@vercel/analytics": "^1.1.1",
     "@tailwindcss/typography": "^0.5.16",
+    "@vercel/analytics": "^1.1.1",
+    "daisyui": "^4.12.23",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.11.1",
     "next": "15.1.3",
