@@ -21,18 +21,17 @@ export function Answer({ answer, isSelected, onClick, disabled, correctAnswer }:
     return undefined;
   };
 
-
   return (
     <button
       onClick={onClick}
       disabled={disabled}
       aria-label={getAriaLabel()}
-      className={`${getButtonStyle()} flex w-full `}
+      className={`${getButtonStyle()} flex w-full`}
     >
       <span className="font-bold mr-2">{answer.id.toUpperCase()}.</span>
-      <div className={`prose flex-1 text-left items-center max-w-[90%] ${isSelected ? 'text-current' : 'text-base-content'}`}>
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
-            {answer.text}
+      <div className={`prose flex-1 text-left max-w-[90%] whitespace-pre-wrap ${isSelected ? 'text-current' : 'text-base-content'}`}>
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          {answer.text}
         </ReactMarkdown>
       </div>
     </button>
